@@ -1,6 +1,6 @@
 # bmtrip
 
-## ???
+## 技术栈
 > - axios
   - vuex
   - vue-router
@@ -12,6 +12,6 @@
   - cube-ui / vant
 
 
-## ????
+## 创建环境
 >  vue/cli@3
 
