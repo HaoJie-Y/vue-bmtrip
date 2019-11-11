@@ -1,29 +1,17 @@
 # bmtrip
 
-## Project setup
-```
-npm install
-```
+## ???
+> - axios
+  - vuex
+  - vue-router
+  - JS????
+  - UI????
+  - better-scroll
+  - vue-touch
+  - vue-lazyload
+  - cube-ui / vant
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## ????
+>  vue/cli@3
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

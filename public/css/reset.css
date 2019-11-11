@@ -1,0 +1,27 @@
+body,html,p,h1,h2,h3,h4,h5,h6,input,td,ul,ol,dl,dd,hr,option,textarea,fieldset,legend,figure{margin:0; padding:0;}
+body{
+	font:12px "微软雅黑"; color: #333;
+}
+html{font-size: 26.67vw;}
+li{list-style:none;}
+a{text-decoration: none; color:#666}
+a:hover{text-decoration: underline;}
+img{display: block; border:none;}
+input{outline: none;}
+textarea{resize: none; outline: none;}
+h1,h2,h3,h4,h5,h6,b,strong{font-weight: normal;}
+em,i{font-style: normal;}
+.clear:after{
+	content: "";
+	display: block;
+	clear: both;
+	height:0;
+	visibility: hidden;
+}
+.clear{zoom:1;}
+.fl{float:left;}
+.fr{float:right;}
+.w1190{
+	width:1200px; margin:0 auto;
+}
+.border0{border:none!important;}	
