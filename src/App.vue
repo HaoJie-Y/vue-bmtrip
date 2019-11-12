@@ -3,10 +3,15 @@
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
+<<<<<<< HEAD
     <Footer v-if="$route.meta.flag"/>
+=======
+>>>>>>> master
   </div>
 </template>
+<script>
 
+<<<<<<< HEAD
 <script>
 import Footer from "@common/components/footer"
 export default {
@@ -27,4 +32,9 @@ export default {
   padding-bottom: 0.66rem;
   padding-top: 0.44rem;
 }
+=======
+</script>
+<style lang="scss">
+
+>>>>>>> master
 </style>
