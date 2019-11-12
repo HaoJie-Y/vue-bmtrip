@@ -3,7 +3,7 @@
     <div class="header" style="border-bottom:0.5px solid #ebedf0;">
       <div
         class="iconfont icon-fanhui"
-        style="font-size: 0.24rem;font-weight:bold;color: #666464;"
+        style="font-size: 0.16rem;font-weight:bold;color: #666464;"
       ></div>
       <span>自由行</span>
       <div class="header_right"></div>
@@ -12,11 +12,11 @@
     <div class="content">
       <div class="product_items_container productList">
         <!-- 每一项产品 -->
-        <div class="product_items">
-          <div class="product_items_img">
+        <div class="product_items" v-for="(item,index) in list" :key="index">
+          <a :href="item.url">
+            <div class="product_items_img">
             <img
-              src="https://product-ssl-qiniu.bmtrip.com/product_5da7f77cbfea8.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-              alt
+              :src="item.img"
             />
           </div>
           <div class="product_item_info">
@@ -32,182 +32,35 @@
               <span>含机票</span>
               <span>热卖</span>
             </div>
-            <div class="product_item_price">￥32,800起</div>
+            <div class="product_item_price">￥{{item.price}}起</div>
           </div>
-        </div>
-        <div class="product_items">
-          <div class="product_items_img">
-            <img
-              src="https://product-ssl-qiniu.bmtrip.com/product_5da97172b4023.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-              alt
-            />
-          </div>
-          <div class="product_item_info">
-            <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-            <div class="product_item_introduce">
-              <span>亲自首选</span>
-              <span>羊咩咩牧场</span>
-              <span>萤火虫洞</span>
-              <span>萤火虫洞</span>
-            </div>
-            <div class="product_item_tags">
-              <span>欢淘亲子</span>
-              <span>含机票</span>
-              <span>热卖</span>
-            </div>
-            <div class="product_item_price">￥32,800起</div>
-          </div>
+          </a>
         </div>
 
-        <div class="product_items">
-          <div class="product_items_img">
-            <img
-              src="https://product-ssl-qiniu.bmtrip.com/product_5dba6c59aa4e1.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-              alt
-            />
-          </div>
-          <div class="product_item_info">
-            <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-            <div class="product_item_introduce">
-              <span>亲自首选</span>
-              <span>羊咩咩牧场</span>
-              <span>萤火虫洞</span>
-              <span>萤火虫洞</span>
-            </div>
-            <div class="product_item_tags">
-              <span>欢淘亲子</span>
-              <span>含机票</span>
-              <span>热卖</span>
-            </div>
-            <div class="product_item_price">￥32,800起</div>
-          </div>
-        </div>
-
-        <div class="product_items">
-          <div class="product_items_img">
-            <img
-              src="https://product-ssl-qiniu.bmtrip.com/product_5d64d9800cdcb.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-              alt
-            />
-          </div>
-          <div class="product_item_info">
-            <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-            <div class="product_item_introduce">
-              <span>亲自首选</span>
-              <span>羊咩咩牧场</span>
-              <span>萤火虫洞</span>
-              <span>萤火虫洞</span>
-            </div>
-            <div class="product_item_tags">
-              <span>欢淘亲子</span>
-              <span>含机票</span>
-              <span>热卖</span>
-            </div>
-            <div class="product_item_price">￥32,800起</div>
-          </div>
-        </div>
-        <div class="product_items">
-          <div class="product_items_img">
-            <img
-              src="https://product-ssl-qiniu.bmtrip.com/product_5da7f77cbfea8.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-              alt
-            />
-          </div>
-          <div class="product_item_info">
-            <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-            <div class="product_item_introduce">
-              <span>亲自首选</span>
-              <span>羊咩咩牧场</span>
-              <span>萤火虫洞</span>
-              <span>萤火虫洞</span>
-            </div>
-            <div class="product_item_tags">
-              <span>欢淘亲子</span>
-              <span>含机票</span>
-              <span>热卖</span>
-            </div>
-            <div class="product_item_price">￥32,800起</div>
-          </div>
-        </div>
-        <div class="product_items">
-          <div class="product_items_img">
-            <img
-              src="https://product-ssl-qiniu.bmtrip.com/product_5da97172b4023.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-              alt
-            />
-          </div>
-          <div class="product_item_info">
-            <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-            <div class="product_item_introduce">
-              <span>亲自首选</span>
-              <span>羊咩咩牧场</span>
-              <span>萤火虫洞</span>
-              <span>萤火虫洞</span>
-            </div>
-            <div class="product_item_tags">
-              <span>欢淘亲子</span>
-              <span>含机票</span>
-              <span>热卖</span>
-            </div>
-            <div class="product_item_price">￥32,800起</div>
-          </div>
-        </div>
-
-        <div class="product_items">
-          <div class="product_items_img">
-            <img
-              src="https://product-ssl-qiniu.bmtrip.com/product_5dba6c59aa4e1.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-              alt
-            />
-          </div>
-          <div class="product_item_info">
-            <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-            <div class="product_item_introduce">
-              <span>亲自首选</span>
-              <span>羊咩咩牧场</span>
-              <span>萤火虫洞</span>
-              <span>萤火虫洞</span>
-            </div>
-            <div class="product_item_tags">
-              <span>欢淘亲子</span>
-              <span>含机票</span>
-              <span>热卖</span>
-            </div>
-            <div class="product_item_price">￥32,800起</div>
-          </div>
-        </div>
-
-        <div class="product_items">
-          <div class="product_items_img">
-            <img
-              src="https://product-ssl-qiniu.bmtrip.com/product_5d64d9800cdcb.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-              alt
-            />
-          </div>
-          <div class="product_item_info">
-            <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-            <div class="product_item_introduce">
-              <span>亲自首选</span>
-              <span>羊咩咩牧场</span>
-              <span>萤火虫洞</span>
-              <span>萤火虫洞</span>
-            </div>
-            <div class="product_item_tags">
-              <span>欢淘亲子</span>
-              <span>含机票</span>
-              <span>热卖</span>
-            </div>
-            <div class="product_item_price">￥32,800起</div>
-          </div>
-        </div>
+       
       </div>
     </div>
   </div>
 </template>
 <script>
+import {freedomApi} from "@api/freedom"
 export default {
-  name: "Freedom"
+  name: "Freedom",
+  data() {
+    return {
+      list:[]
+    }
+  },
+  async created(){
+    let data = await freedomApi();
+    this.list = data.data.list;
+    console.log(this.list); 
+  }
 };
 </script>
-<style>
+<style scoped>
+
+.content {
+  padding: 0.44rem 0 0.66rem;
+}
 </style>

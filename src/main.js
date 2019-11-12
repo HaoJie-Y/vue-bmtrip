@@ -1,18 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from "./router"
-<<<<<<< HEAD
+import VueTouch from "vue-touch"
+import Vuex from "vuex"
 import "@common/components"
-=======
->>>>>>> master
 
 Vue.config.productionTip = false
-
+Vue.use(VueTouch);
+Vue.use(Vuex);
 new Vue({
-<<<<<<< HEAD
   router,
-=======
-    router,
->>>>>>> master
   render: h => h(App)
 }).$mount('#app')
