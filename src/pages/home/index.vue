@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <Header title="首页" iconLeft iconRight>
+        <Header :title="title" iconLeft iconRight>
             <!-- <div slot="left" class="iconfont icon-sousuo" style="font-size: 0.24rem;"></div> -->
             <div slot="left" class="header_left" :style="left.style"></div>
             <div slot="right" class="header_right" :style="right.style"></div>
@@ -9,16 +9,7 @@
         <div class="top_bar">
             <ul>
                 <div class="li_line"></div>
-                <li>首页</li>
-                <li>双十一来啦</li>
-                <li>双淘亲子</li>
-                <li>超级旅行团 </li>
-                <li>日本枫叶季</li>
-                <li>梦幻跌落</li>
-                <li>诗画欧洲</li>
-                <li>小众中东非</li>
-                <li>美洲澳新</li>
-                <li>祖国最美</li>
+                <v-touch tag="li" v-for="(item,index) in homeNavList" :key="index" pageId="item.pageId">{{item.name}}</v-touch>
             </ul>
         </div>
         <!-- banner -->
@@ -74,18 +65,30 @@
             </div>
         </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- home_items -->
         <div class="products">
             <div class="product">
                 <div class="product_title"><img
-                        src="https://product-ssl-qiniu.bmtrip.com/product_5da96a0eec23b.png?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!339x32r/crop/339x32/format/jpg/interlace/1/sharpen/1/quality/100!"
+                        src=''
                         alt=""></div>
                 <div class="product_items_container">
 
                     <!-- 每一项产品 -->
                     <div class="product_items">
                         <div class="product_items_img">
-                            <img src="https://product-ssl-qiniu.bmtrip.com/product_5da820342900e.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
+                            <img :src="itemList[0]"
                                 alt="">
                         </div>
                         <div class="product_item_info">
@@ -181,121 +184,25 @@
                 </div>
             </div>
         </div>
-        <div class="products">
-            <div class="product">
-                <div class="product_title"><img
-                        src="https://product-ssl-qiniu.bmtrip.com/product_5da96a0eec23b.png?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!339x32r/crop/339x32/format/jpg/interlace/1/sharpen/1/quality/100!"
-                        alt=""></div>
-                <div class="product_items_container">
 
-                    <!-- 每一项产品 -->
-                    <div class="product_items">
-                        <div class="product_items_img">
-                            <img src="https://product-ssl-qiniu.bmtrip.com/product_5da820342900e.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-                                alt="">
-                        </div>
-                        <div class="product_item_info">
-                            <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-                            <div class="product_item_introduce">
-                                <span>亲自首选</span>
-                                <span>羊咩咩牧场</span>
-                                <span>萤火虫洞</span>
-                                <span>萤火虫洞</span>
-                            </div>
-                            <div class="product_item_tags">
-                                <span>欢淘亲子</span>
-                                <span>含机票</span>
-                                <span>热卖</span>
-                            </div>
-                            <div class="product_item_price">
-                                ￥32,800起
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product_items">
-                        <div class="product_items_img">
-                            <img src="https://product-ssl-qiniu.bmtrip.com/product_5da540e300ced.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-                                alt="">
-                        </div>
-                        <div class="product_item_info">
-                            <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-                            <div class="product_item_introduce">
-                                <span>亲自首选</span>
-                                <span>羊咩咩牧场</span>
-                                <span>萤火虫洞</span>
-                                <span>萤火虫洞</span>
-                            </div>
-                            <div class="product_item_tags">
-                                <span>欢淘亲子</span>
-                                <span>含机票</span>
-                                <span>热卖</span>
-                            </div>
-                            <div class="product_item_price">
-                                ￥32,800起
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product_items">
-                        <div class="product_items_img">
-                            <img src="https://product-ssl-qiniu.bmtrip.com/product_5da540e300ced.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-                                alt="">
-                        </div>
-                        <div class="product_item_info">
-                            <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-                            <div class="product_item_introduce">
-                                <span>亲自首选</span>
-                                <span>羊咩咩牧场</span>
-                                <span>萤火虫洞</span>
-                                <span>萤火虫洞</span>
-                            </div>
-                            <div class="product_item_tags">
-                                <span>欢淘亲子</span>
-                                <span>含机票</span>
-                                <span>热卖</span>
-                            </div>
-                            <div class="product_item_price">
-                                ￥32,800起
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product_items">
-                        <div class="product_items_img">
-                            <img src="https://product-ssl-qiniu.bmtrip.com/product_5da820342900e.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-                                alt="">
-                        </div>
-                        <div class="product_item_info">
-                            <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-                            <div class="product_item_introduce">
-                                <span>亲自首选</span>
-                                <span>羊咩咩牧场</span>
-                                <span>萤火虫洞</span>
-                                <span>萤火虫洞</span>
-                            </div>
-                            <div class="product_item_tags">
-                                <span>欢淘亲子</span>
-                                <span>含机票</span>
-                                <span>热卖</span>
-                            </div>
-                            <div class="product_item_price">
-                                ￥32,800起
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
     </div>
     </div>
 </template>
 
 <script>
+import {homeNavApi,homeDetailApi,homeItemApi} from "@api/home"
 export default {
     name: "Home",
     data(){
         return{
+            homeNavList:[],
+            detailDataList:[],
+            // bannerList:[],
+            // titleList:[],
+            // itemList:[],
+            // swiperList:[],
+            itemList:[],
+            title:"",
             left:{
                 style:"background:  50% no-repeat url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNLTEgMTloMjBWLTFILTF6Ii8+PHBhdGggZD0iTTE0IDcuMzMzYTYuNjY3IDYuNjY3IDAgMTEtMTMuMzM0IDAgNi42NjcgNi42NjcgMCAwMTEzLjMzNCAweiIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9Ii44MzMiLz48cGF0aCBkPSJNMTcuMzMzIDE3LjMzM2wtNS01IiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iLjgzMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9nPjwvc3ZnPg==')"
             },
@@ -303,11 +210,25 @@ export default {
                 style:"background: 50% no-repeat url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTS4yNSAxMi4zMzNWOWE4Ljc1IDguNzUgMCAwMTE3LjUgMHY1QTMuNzUgMy43NSAwIDAxMTQgMTcuNzVhLjQxNy40MTcgMCAwMTAtLjgzM2MuODE2IDAgMS41NTMtLjMzNSAyLjA4My0uODc1YTIuMDgzIDIuMDgzIDAgMDEtMi41LTIuMDQydi0xLjY2N2EyLjA4MyAyLjA4MyAwIDAxMy4zMzQtMS42NjZWOUE3LjkxNyA3LjkxNyAwIDAwMS4wODMgOXYxLjY2N2EyLjA4MyAyLjA4MyAwIDAxMy4zMzMgMS42NjdWMTRBMi4wODMgMi4wODMgMCAwMS4yNSAxNHYtMS42Njd6TTEuMDgzIDE0YTEuMjUgMS4yNSAwIDAwMi41IDB2LTEuNjY3YTEuMjUgMS4yNSAwIDAwLTIuNSAwVjE0em0xNS44MzQtMS42NjdhMS4yNSAxLjI1IDAgMDAtMi41IDBWMTRhMS4yNSAxLjI1IDAgMTAyLjUgMHYtMS42Njd6IiBmaWxsPSIjMzMzIi8+PC9zdmc+');"
             }
         }
+    },
+    async created(){
+        let navData = await homeNavApi();
+        this.homeNavList = navData.data.nav;
+        let detailData = await homeDetailApi();
+        this.detailDataList = detailData.data.data;
+        this.title = detailData.data.pageName
+        let itemData = await homeItemApi();
+        this.itemList = itemData.data
+        console.log(this.detailDataList,this.detailDataList[1].data[0].img.url)
+        console.log(this.itemList)
     }
 }
 </script>
 
-<style>
+<style scoped>
+.content{
+    overflow-x: hidden;
+}
     /* banner */
  .home_banner {
     margin: 0.18rem;
@@ -333,6 +254,7 @@ export default {
      justify-content: space-between;
      align-items: center;
  }
+
  .travelType ul li {
      display: flex;
      width: 0.84rem;
