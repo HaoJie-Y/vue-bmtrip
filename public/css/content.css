@@ -1,0 +1,150 @@
+
+
+/* banner */
+ .home_banner {
+    margin: 0.18rem;
+    width: 100%;
+    height: 1.9rem;
+    /* box-sizing: border-box; */
+ }
+ .home_banner img {
+    width: 3.39rem;
+    height: 1.89rem;
+ }
+
+ /* travelType */
+ .travelType {
+     margin: 0.18rem 0.18rem 0.25rem;
+     width: 3.39rem;
+     height: 0.58rem;
+ }
+ .travelType ul {
+     width: 100%;
+     height: 100%;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+ .travelType ul li {
+     display: flex;
+     width: 0.84rem;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+ .travelType ul li span {
+     width: .36rem;
+     height: .36rem;
+     margin-bottom: 0.06rem;
+ }
+ .travelType ul li span img {
+    width: .36rem;
+    height: .36rem;
+}
+.travelType ul li i {
+    font-size: 0.12rem;
+    height: .16rem;
+    display: block;
+    line-height: 0.16rem;
+}
+
+/* center_bar */
+.center_bar {
+    margin: .18rem .18rem .32rem;
+}
+.center_bar ul {
+    height: .378rem;
+    display: flex;
+    justify-content: space-between;
+}
+.center_bar ul li {
+    width: .863rem;
+    height: .378rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+.center_bar ul li span {
+    width: .2rem;
+    height: .2rem;
+    margin-bottom: 0.05rem;
+}
+.center_bar ul li span img {
+    width: .2rem;
+    height: .2rem;
+}
+.center_bar ul li i {
+    font-size: 0.1rem;
+    display: flex;
+    height: .12rem;
+}
+
+.center_bar_btn {
+    margin-top: 0.1rem;
+    height: 0.13rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.center_bar_btn span {
+    display: block;
+    width: .15rem;
+    height: .02rem;
+    background: #f0f0f0;
+    margin-right: 0.01rem;
+    margin-top: 0.08rem;
+}
+.center_bar_btn .center_bar_btn_active {
+    background: #c14374;
+}
+
+/* productList*/
+.productList {
+    margin: 0.18rem 0.18rem 0.24rem;
+}
+
+
+
+/* 双十一来啦 */
+.goodOne {
+    width: 3.39rem;
+    height: 3.9rem;
+    margin: 0.18rem 0.18rem 0.22rem;
+}
+.goodOne img {
+    width: 100%;
+    height: 100%;
+}
+.goodTwo {
+    width: 3.39rem;
+    height: 3.77rem;
+    margin: 0.18rem 0.18rem 0.22rem;
+}
+.goodTwo img {
+    width: 100%;
+    height: 100%;
+}
+.goodFamily {
+    width: 3.39rem;
+    height: 2.57rem;
+    margin: 0.18rem 0.18rem 0.22rem;
+}
+.activeRule {
+    width: 3.39rem;
+    height: 3.51rem;
+    margin: 0.18rem 0.18rem 0.22rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

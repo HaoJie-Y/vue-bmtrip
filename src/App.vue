@@ -1,29 +1,30 @@
 <template>
   <div id="app">
-    <div id="nav">
-    </div>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+    <Footer v-if="$route.meta.flag"/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import Footer from "@common/components/footer"
+export default {
+  name: "App",
+  components: {
+    Footer
   }
+}
+</script>
+
+<style lang="scss">
+.page{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding-bottom: 0.66rem;
+  padding-top: 0.44rem;
 }
 </style>

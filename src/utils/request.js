@@ -12,9 +12,10 @@ server.interceptors.request.use((config)=>{
     if(config.method=="get"){
         config.params = {...config.data};
     }
+    return config;
     // config.headers['content-type'] = 'aplication/json'
 },(err)=>{
-    Promise.reject(err);
+    return Promise.reject(err);
 })
 
 //相应拦截
