@@ -5,7 +5,7 @@ module.exports = {
     devServer: {
         proxy: {
             '/': {
-                target: 'https://m.bmtrip.com',
+                target: 'https://m.bmtrip.com/api/v3',
                 changeOrigin: true
             }
         }
