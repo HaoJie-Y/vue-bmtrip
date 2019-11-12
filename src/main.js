@@ -5,6 +5,7 @@ import VueTouch from "vue-touch"
 import Vuex from "vuex"
 import "@common/components"
 //
+// asd
 Vue.config.productionTip = false
 Vue.use(VueTouch);
 Vue.use(Vuex);
