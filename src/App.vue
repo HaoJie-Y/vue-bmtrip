@@ -6,7 +6,6 @@
     <Footer v-if="$route.meta.flag"/>
   </div>
 </template>
-
 <script>
 import Footer from "@common/components/footer"
 export default {

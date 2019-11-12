@@ -5,7 +5,7 @@
         <slot name="left"></slot>
         <!-- <div class="header_left"></div> -->
       </div>
-      <span>首页</span>
+      <span>{{title}}</span>
       <div v-if="iconRight">
         <slot name="right"></slot>
         <!-- <div class="header_right"></div> -->

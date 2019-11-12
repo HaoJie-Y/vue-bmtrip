@@ -7,6 +7,8 @@ import "@common/components"
 //
 //123123
 
+Vue.use(VueTouch);
+Vue.use(Vuex);
 Vue.config.productionTip = false
 Vue.use(VueTouch);
 Vue.use(Vuex);

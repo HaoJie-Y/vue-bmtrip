@@ -11,12 +11,9 @@
         </div>
         <div class="bm_navbar">
             <ul class="van_tags">
-                <li>全部</li>
-                <li>涨知识</li>
-                <li>看世界</li>
-                <li>达人说</li>
-                <li>有福利</li>
-                <span class="tags_line"></span>
+                <li v-for="data in navList" :key="data.id" class="active">{{data.name}}
+                    <!-- <span class="tags_line"></span> -->
+                </li>
             </ul>
         </div>
         <div class="content_bm">
@@ -89,8 +86,19 @@
 </template>
 
 <script>
+    import {bmfindNavApi} from "@api/bmfind"
     export default {
-        name: "Bmfind"
+        name: "Bmfind",
+        data(){
+            return{
+                navList:[],
+            }
+        },
+        async created(){
+            let navData = await bmfindNavApi();
+            this.navList = navData.data.list;
+            console.log(this.navList);
+        }
     }
 </script>
 
@@ -127,6 +135,14 @@
     .van_tags li:first-child{
         color:#c14374;
     }
+
+    /* .active{
+        color:#c14374;
+        border-bottom:0.03rem solid #c14374;;
+        width: 0.18rem;
+        border-radius: 3px;
+        box-sizing: 
+    } */
 
     .tags_line{
         width: 0.18rem;
