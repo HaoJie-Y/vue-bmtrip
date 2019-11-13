@@ -3,7 +3,7 @@
         <div class="search_input">
             <form action="">
                 <i class="search_icon iconfont icon-sousuo"></i>
-                <router-link tag="input" type="text" placeholder="请输入" class="search_something" @keydown.enter.prevent="handleEnter" :to="'/proList?keyword='+historyItem"></router-link>
+                <input v-model="value" type="text" placeholder="请输入" class="search_something" @keydown.enter.prevent="handleEnter" />
             </form>
             <div class="cancel">取消</div>
         </div>
@@ -30,14 +30,23 @@
         data(){
             return{
                 historyItem:'',
-                historyList:[]
+                historyList:[],
+                value:""
             }
         },
         methods:{
             handleEnter(e){
-                this.historyItem = e.target.value
-                this.historyList.push(this.historyItem);
-                e.target.value = '';
+                if(e.target.value){
+                    this.historyItem = e.target.value
+                    this.historyList.push(this.historyItem);
+                    e.target.value = '';
+                    this.$router.push();
+                }
+            }
+        },
+        watch:{
+            value() {
+                
             }
         }
     }

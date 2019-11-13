@@ -219,8 +219,6 @@ export default {
         this.title = detailData.data.pageName
         let itemData = await homeItemApi();
         this.itemList = itemData.data
-        console.log(this.detailDataList,this.detailDataList[1].data[0].img.url)
-        console.log(this.itemList)
     }
 }
 </script>
