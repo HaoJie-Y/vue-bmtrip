@@ -200,8 +200,9 @@ overflow-y: auto;
     font-size: 0.1rem;
     color: #898989;
     display: inline-block;
-    border-right: 1px solid #898989;
+    /* border-right: 1px solid #898989; */
     padding-right: .03rem;
+    /* height:0.1rem; */
     /* letter-spacing: 0.01rem; */
    
 }

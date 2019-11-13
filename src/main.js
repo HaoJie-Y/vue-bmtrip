@@ -10,8 +10,6 @@ import "@common/components"
 Vue.use(VueTouch);
 Vue.use(Vuex);
 Vue.config.productionTip = false
-Vue.use(VueTouch);
-Vue.use(Vuex);
 new Vue({
   router,
   render: h => h(App)

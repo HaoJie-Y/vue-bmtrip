@@ -1,0 +1,30 @@
+{
+	"data": [{
+		"type": "0",
+		"id": "0",
+		"url": "https:\/\/m.bmtrip.com\/destination",
+		"img": {
+			"w": "678",
+			"h": "378",
+			"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5da9563d239eb.jpg"
+		}
+	}, {
+		"type": "0",
+		"id": "0",
+		"url": "https:\/\/m.bmtrip.com\/proList?districtId=118&title=%E5%9C%9F%E8%80%B3%E5%85%B6",
+		"img": {
+			"w": "678",
+			"h": "378",
+			"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5da95664517f6.jpg"
+		}
+	}, {
+		"type": "0",
+		"id": "0",
+		"url": "https:\/\/m.bmtrip.com\/proList?themeId=246&title=%E5%91%A8%E8%BE%B9%E9%85%92%E5%BA%97",
+		"img": {
+			"w": "678",
+			"h": "378",
+			"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5da9567902b6f.jpg"
+		}
+	}]
+}
