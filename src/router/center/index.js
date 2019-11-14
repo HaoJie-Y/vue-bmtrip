@@ -1,5 +1,8 @@
 export default {
     path:"/center",
     component:()=>import("@pages/center"),
-    name:"bmfind"
+    name:"center",
+    meta : {
+        flag: true,
+    }
 }
