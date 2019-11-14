@@ -111,6 +111,10 @@ overflow-y: auto;
     flex-wrap: nowrap;
 
 }
+.top_bar ul::-webkit-scrollbar{
+  width:0;
+  height:0;
+}
 
 .top_bar ul li {
     letter-spacing: .01rem;
@@ -196,8 +200,9 @@ overflow-y: auto;
     font-size: 0.1rem;
     color: #898989;
     display: inline-block;
-    border-right: 1px solid #898989;
+    /* border-right: 1px solid #898989; */
     padding-right: .03rem;
+    /* height:0.1rem; */
     /* letter-spacing: 0.01rem; */
    
 }

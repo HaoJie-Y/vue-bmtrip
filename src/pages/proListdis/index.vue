@@ -3,11 +3,10 @@
     <div class="header" style="background: rgba(0, 0, 0, 0);">
       <v-touch
         tag="div"
-         @tap="handleBack"
         class="iconfont icon-fanhui"
         style="font-size: 0.18rem;"
       ></v-touch>
-      <span>{{title}}</span>
+      <span>11111111111</span>
       <div
         class="iconfont icon-sousuo"
         style="font-size: 0.20rem;margin-right: 0.04rem; font-weight: 600;"
@@ -16,15 +15,8 @@
 
     <div class="vantab">
       <div class="vantab_wrap">
-
-
-        <div @click="i=index" :class="i===index ? 'line_active' : ''" v-for="(item,index) in tabList" :key="index">{{item.title}}</div>
-        <!-- <div class="vantab_all">全部</div>
-        <div class="vantab_free">自由行</div> -->
-
-
-
-
+        <div class="vantab_all">全部</div>
+        <div class="vantab_free">自由行</div>
       </div>
       <div class="vantab_line"></div>
     </div>
@@ -150,31 +142,8 @@
 </template>
 
 <script>
-import { prolistTitleApi,prolistApi } from "@api/prolist"
 export default {
   name: "ProList",
-  data() {
-    return {
-      tabList:[],
-      dataList:[],
-      title:"",
-      i:0
-    }
-  },
-  methods: {
-     handleBack () {
-      this.$router.back(1);
-    }
-  },
-  async created () {
-    this.title = this.$route.query.title;
-    let data = await prolistTitleApi(this.$route.query.districtId)
-    this.tabList = data.data.list;
-    // console.log(data)
-    let dataList = await prolistApi(this.$route.query.districtId)
-    this.dataList = dataList.data.list
-    console.log(this.dataList)
-  }
 };
 </script>
 
@@ -207,38 +176,35 @@ header {
 
 .vantab_wrap {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   font-size: 0.14rem;
   color: #323233;
 }
-.vantab_wrap div {
-  /* flex: 1; */
+.vantab_all,
+.vantab_free {
+  flex: 1;
   height: 0.44rem;
-  width: 0.36rem ;
   line-height: 0.44rem;
   margin: 0 0.05rem;
   padding: 0 0.05rem;
   box-sizing: border-box;
-  white-space: nowrap;
 }
 
 .vantab_free {
   color: #7d7e80;
 }
 
-/* .vantab_line {
+.vantab_line {
   width: 0.26rem;
   height: 0.03rem;
   position: absolute;
   bottom: 0;
   left: 0.8rem;
   background: #f44;
-} */
-.line_active {
-  border-bottom: 0.03rem solid #f44;
 }
+
 .btntab {
   height: 0.44rem;
   display: flex;

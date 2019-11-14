@@ -1,7 +1,8 @@
 <template>
+<keep-alive exclude>
   <div>
     <div class="header" style="background: rgba(0, 0, 0, 0);">
-      <div class="iconfont icon-fanhui" style="font-size: 0.24rem;color: #fff;"></div>
+      <v-touch tag="div" @tap="handleBack" class="iconfont icon-fanhui" style="font-size: 0.24rem;color: #fff;"></v-touch>
       <span></span>
       <div
         class="iconfont icon-fenxiang"
@@ -11,21 +12,23 @@
     <div class="contentd">
       <div class="detail_banner">
         <img
-          src="https://product-ssl-qiniu.bmtrip.com/product_5dc3bad13dba3.jpg?imageMogr2/gravity/Center/thumbnail/!750x750r/crop/750x750"
-          alt
+          :src="detail.product_img_wx[0].url"
         />
       </div>
       <div class="detail_info">
-        <p class="detail_info_title">神奇动物在这里|新西兰11天9晚</p>
-        <p class="detail_info_small">亲子首选·羊咩咩牧场·萤火虫洞·出海观鲸·看企鹅</p>
+        <p class="detail_info_title">{{detail.title}}</p>
+        <p class="detail_info_small">{{detail.label}}</p>
         <div class="detail_biaoqian">
-          <div>私家游</div>
-          <div>欢淘亲子</div>
-          <div>含机票</div>
+          <div v-for="(marks,ind) in detailMark" :key="ind">{{marks.name}}</div>
+          <!-- <div>{{detail.mark[1].name}}</div>
+          <div>{{detail.mark[2].name}}</div> -->
         </div>
         <div class="detail_price">
           <span class="detail_price_one">参报价</span>
-          <span class="detail_price_two">￥32800</span>
+          <!-- priceFilter -->
+<!--  -->
+          <!--  -->
+          <span class="detail_price_two">￥{{detail.min_price | priceFilter}}</span>
           <span class="detail_price_three">起/人</span>
         </div>
       </div>
@@ -37,6 +40,11 @@
           <i class="iconfont icon-arrow-copy"></i>
         </div>
       </div>
+<!-- 
+      <transition name="bottom">
+        <div class="bottom" v-if="isShow"></div>
+      </transition> -->
+
     </div>
 
     <!-- 详情页的底部 -->
@@ -54,13 +62,44 @@
       <div class="want_dingzhi">我要定制</div>
     </div>
   </div>
+</keep-alive>
 </template>
 <script>
+import { detailApi } from "@api/detail"
 export default {
-  name: "Detail"
+  name: "Detail",
+  data () {
+		return {
+      detail:"",  
+      detailMark:[],
+      // isShow:true
+		}
+  },
+  methods: {
+    handleBack () {
+      this.$router.back(1);
+    }
+   },
+   filters: {
+      priceFilter(value) {
+        return value.split(".")[0]
+      }
+   },
+  async created () {
+    let data = await detailApi(this.$route.query.id);
+    this.detail = data.data;
+    this.detailMark = this.detail.mark;
+    console.log(data)
+  }
 };
 </script>
 <style>
+/* .bottom {
+  width: 100%;
+  height: 1rem;
+  background: pink;
+} */
+
 .header {
   width: 3.75rem;
   height: 0.44rem;
@@ -95,6 +134,8 @@ export default {
 .detail_banner img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+
 }
 .contentd {
   width: 100%;
