@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import { prolistTitleApi,prolistApi } from "@api/prolist"
+import { prolistTitleApi,prolistApi,prolistThemeApi,proListThemelistApi } from "@api/prolist"
 export default {
   name: "ProList",
   data() {
@@ -93,7 +93,7 @@ export default {
       this.$router.back(1);
     },
     handleDetailIn(id) {
-      console.log(id)
+      // console.log(id)
       this.$router.push({
         path:"/detail",
         query:{
@@ -105,11 +105,30 @@ export default {
   async created () {
     this.title = this.$route.query.title;
     let data = await prolistTitleApi(this.$route.query.districtId)
-    this.tabList = data.data.list;
-    // console.log(data)
+    
+
     let dataList = await prolistApi(this.$route.query.districtId)
-    this.dataList = dataList.data.list
-    console.log(this.dataList)
+    
+
+    let theTitle = await prolistThemeApi(this.$route.query.theme_id)
+    // console.log(theTitle)
+
+    let theList = await proListThemelistApi(this.$route.query.theme_id)
+    // console.log(theList)
+
+
+    if (data) {
+      this.tabList = data.data.list;
+    } 
+    if (theTitle) {
+      this.tabList = theTitle.data.list;
+    }
+    if (dataList) {
+      this.dataList = dataList.data.list
+    }
+    if (theList) {
+      this.dataList = theList.data.list
+    }
   }
 };
 </script>

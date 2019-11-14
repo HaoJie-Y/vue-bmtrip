@@ -13,8 +13,10 @@
           <v-touch tag="li" @tap="handleClick(index)" :class="i===index ? 'mudidi_active' : ''" v-for="(item,index) in mudidiList" :key="index">{{item.label}}</v-touch>
         </ul>
       </div>
+
       <div class="mudidi_right">
         <div class="mudidi_right_top">
+           
           <v-touch tag="div" @tap="handleProIn(data.id,data.label)" v-for="(data,index) in mudidiChildren" :key="index">
             <img :src="data.img"/>
           </v-touch>
@@ -80,7 +82,7 @@ export default {
     this.mudidiChildren = this.mudidiList[this.i].children;
     this.mudidiProduct = this.mudidiList[this.i].product;
     // this.mudidiSubtitle = this.
-    console.log(data)
+    // console.log(data)
   },
   methods: {
     handleClick(index) {
@@ -89,7 +91,7 @@ export default {
       this.mudidiProduct = this.mudidiList[this.i].product;
     },
     handleDetailIn(id) {
-      console.log(id)
+      // console.log(id)
       this.$router.push({
         path:"/detail",
         query:{
@@ -98,7 +100,7 @@ export default {
       })
     },
     handleProIn(id,title) {
-      console.log(id,title)
+      // console.log(id,title)
       
       this.$router.push({
         path:"/proList",

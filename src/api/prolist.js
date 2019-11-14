@@ -5,7 +5,7 @@ export const prolistApi = (district_id) =>http({
     method: "get",
     url:"/api/v3/m1/product/list",
     data: {
-        'district_id[]':district_id
+        'district？_id[]':district_id
     }
 })
 
@@ -20,5 +20,18 @@ export const prolistTitleApi = (district_id) => http({
 
 
 
+export const prolistThemeApi = (theme_id) => http({
+    method: "get",
+    url:"/api/v3/m1/product/list/type",
+    data: {
+        theme_id:theme_id 
+    }
+})
 
-// /api/v3/m1/product/list
+export const proListThemelistApi = (theme_id) => http({
+    method: "get",
+    url:"/api/v3/m1/product/list",
+    data: {
+        'theme_id[]':theme_id
+    }
+})

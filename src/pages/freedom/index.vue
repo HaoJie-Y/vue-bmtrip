@@ -58,7 +58,7 @@ export default {
   async created(){
     let data = await freedomApi();
     this.list = data.data.list;
-    console.log(this.list); 
+    // console.log(this.list); 
   }
 };
 </script>

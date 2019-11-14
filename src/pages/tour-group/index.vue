@@ -581,7 +581,7 @@ export default {
 
     this.detailList = detail.data.data;
     
-    console.log(this.detailTitle)
+    // console.log(this.detailTitle)
     this.$nextTick(() => {
       var centerSwiper = new Swiper(".swiper-container", {
         
