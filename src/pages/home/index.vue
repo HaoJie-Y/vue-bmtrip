@@ -8,15 +8,19 @@
     <div class="content">
       <div class="top_bar">
         <ul>
-          <div class="li_line"></div>
           <v-touch
             tag="li"
+            @tap="handleActive(index)"
             v-for="(item,index) in homeNavList"
             :key="index"
             pageId="item.pageId"
-          >{{item.name}}</v-touch>
+            :class="activeIndex == index ? 'active' :''" 
+          >{{item.name}}
+          <div class="li_line" ref="line" v-if="activeIndex == index"></div>
+          </v-touch>
         </ul>
       </div>
+	  
       <!-- banner -->
       <div class="home_banner">
         <!-- <img src="https://product-ssl-qiniu.bmtrip.com/product_5da95664517f6.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!339x189r/crop/339x189/format/jpg/interlace/1/sharpen/1/quality/100!"
@@ -36,14 +40,12 @@
       <!-- travelType -->
       <div class="travelType">
         <ul>
-          <li v-for="(data,index) in travelTypeIconList" :key="index">
-            <a :href="data.url">
+          <router-link :to="data.url" tag="li" v-for="(data,index) in travelTypeIconList" :key="index">
               <span>
                 <img :src="data.img" alt />
               </span>
               <i>{{data.label}}</i>
-            </a>
-          </li>
+          </router-link>
         </ul>
       </div>
 
@@ -128,7 +130,7 @@
       </div>
 
       <div
-        class="products"
+        class="products product_swiper"
         v-for="(data,index) in bottomItemList"
         :key="index + new Date().getTime()"
       >
@@ -177,7 +179,6 @@ import {
   homeItemApi
 } from "@api/home";
 export default {
-<<<<<<< HEAD
   name: "Home",
   data() {
     return {
@@ -193,6 +194,7 @@ export default {
       centerItemList: [],
       bottomItemList: [],
       title: "",
+      activeIndex:0,
       left: {
         style:
           "background:  50% no-repeat url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNLTEgMTloMjBWLTFILTF6Ii8+PHBhdGggZD0iTTE0IDcuMzMzYTYuNjY3IDYuNjY3IDAgMTEtMTMuMzM0IDAgNi42NjcgNi42NjcgMCAwMTEzLjMzNCAweiIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9Ii44MzMiLz48cGF0aCBkPSJNMTcuMzMzIDE3LjMzM2wtNS01IiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iLjgzMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9nPjwvc3ZnPg==')"
@@ -216,10 +218,18 @@ export default {
         pagination: ".swiper-pagination",
         loop: true
       });
+      var centerSwiper = new Swiper(".swiper-container", {
+        autoplay: 3000,
+        pagination: ".swiper-pagination",
+        loop: true
+      });
     });
 
     let travelTypeIcon = await homeIconsApi();
     this.travelTypeIconList = travelTypeIcon.data.list;
+
+    console.log(this.bannerList)
+    
 
     let centerBar = await homeGroupApi();
     this.centerBarList = centerBar.data.list;
@@ -245,35 +255,6 @@ export default {
       for (var j = 4 * i; j < 4 * (i + 1); j++) {
         this.topItemList[i].content.push(this.itemContentList[j]);
       }
-=======
-    name: "Home",
-    data(){
-        return{
-            homeNavList:[],
-            detailDataList:[],
-            // bannerList:[],
-            // titleList:[],
-            // itemList:[],
-            // swiperList:[],
-            itemList:[],
-            title:"",
-            left:{
-                style:"background:  50% no-repeat url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNLTEgMTloMjBWLTFILTF6Ii8+PHBhdGggZD0iTTE0IDcuMzMzYTYuNjY3IDYuNjY3IDAgMTEtMTMuMzM0IDAgNi42NjcgNi42NjcgMCAwMTEzLjMzNCAweiIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9Ii44MzMiLz48cGF0aCBkPSJNMTcuMzMzIDE3LjMzM2wtNS01IiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iLjgzMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9nPjwvc3ZnPg==')"
-            },
-            right:{
-                style:"background: 50% no-repeat url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTS4yNSAxMi4zMzNWOWE4Ljc1IDguNzUgMCAwMTE3LjUgMHY1QTMuNzUgMy43NSAwIDAxMTQgMTcuNzVhLjQxNy40MTcgMCAwMTAtLjgzM2MuODE2IDAgMS41NTMtLjMzNSAyLjA4My0uODc1YTIuMDgzIDIuMDgzIDAgMDEtMi41LTIuMDQydi0xLjY2N2EyLjA4MyAyLjA4MyAwIDAxMy4zMzQtMS42NjZWOUE3LjkxNyA3LjkxNyAwIDAwMS4wODMgOXYxLjY2N2EyLjA4MyAyLjA4MyAwIDAxMy4zMzMgMS42NjdWMTRBMi4wODMgMi4wODMgMCAwMS4yNSAxNHYtMS42Njd6TTEuMDgzIDE0YTEuMjUgMS4yNSAwIDAwMi41IDB2LTEuNjY3YTEuMjUgMS4yNSAwIDAwLTIuNSAwVjE0em0xNS44MzQtMS42NjdhMS4yNSAxLjI1IDAgMDAtMi41IDBWMTRhMS4yNSAxLjI1IDAgMTAyLjUgMHYtMS42Njd6IiBmaWxsPSIjMzMzIi8+PC9zdmc+');"
-            }
-        }
-    },
-    async created(){
-        let navData = await homeNavApi();
-        this.homeNavList = navData.data.nav;
-        let detailData = await homeDetailApi();
-        this.detailDataList = detailData.data.data;
-        this.title = detailData.data.pageName
-        let itemData = await homeItemApi();
-        this.itemList = itemData.data
->>>>>>> master
     }
 
     for (var i = 2; i < 5; i++) {
@@ -291,7 +272,11 @@ export default {
     for (var i = 17; i < 21; i++) {
       this.bottomItemList[0].content.push(this.itemContentList[i]);
     }
-    console.log(this.centerItemList);
+  },
+  methods:{
+    handleActive(index){
+      this.activeIndex = index;
+    }
   }
 };
 </script>
@@ -417,6 +402,7 @@ export default {
   margin: 0.18rem 0.18rem 0.24rem;
 }
 
+
 .trim_wrap_item_info {
   padding: 0.12rem 0.09rem 0;
 }
@@ -485,4 +471,27 @@ export default {
 .products:last-child{
   margin-bottom:0.3rem;
 }
+
+.active{
+  color:#c04374;
+}
+
+.top_bar ul .li_line {
+    z-index: 1;
+    left: 50%;
+    bottom: 0px;
+    height: 3px;
+    position: absolute;
+    border-radius: 3px;
+    width: 18px;
+    background: #c14374;
+    transform:translateX(-50%);
+}
+
+
+.top_bar ul li {
+  position: relative;
+
+}
+
 </style>

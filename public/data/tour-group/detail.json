@@ -1,0 +1,426 @@
+{
+	"code": 0,
+	"message": "",
+	"data": {
+		"pageId": "5da95ad1b896315b64180ed4",
+		"pageName": "超级旅行团",
+		"pageTypeName": "导航",
+		"type": 2,
+		"data": [{
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "0",
+				"id": 0,
+				"url": "",
+				"img": {
+					"w": "750",
+					"h": "649",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5da9558976c82.jpg"
+				}
+			}]
+		}, {
+			"type": 1,
+			"name": "幻灯片组件",
+			"style": "2",
+			"data": [{
+				"type": "0",
+				"id": 0,
+				"url": "",
+				"img": {
+					"w": "625",
+					"h": "637",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5daa783963fed.jpg"
+				}
+			}, {
+				"type": "0",
+				"id": 0,
+				"url": "",
+				"img": {
+					"w": "625",
+					"h": "637",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5daa7844e43f9.jpg"
+				}
+			}, {
+				"type": "0",
+				"id": 0,
+				"url": "",
+				"img": {
+					"w": "625",
+					"h": "637",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5daa78483bda3.jpg"
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "0",
+				"id": 0,
+				"url": "",
+				"img": {
+					"w": "750",
+					"h": "250",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5da955d994eae.jpg"
+				}
+			}]
+		}, {
+			"type": 1,
+			"name": "幻灯片组件",
+			"style": "2",
+			"data": [{
+				"type": "1",
+				"id": "1900",
+				"url": "",
+				"img": {
+					"w": 0,
+					"h": 0,
+					"url": ""
+				}
+			}, {
+				"type": "1",
+				"id": "1229",
+				"url": "",
+				"img": {
+					"w": 0,
+					"h": 0,
+					"url": ""
+				}
+			}, {
+				"type": "1",
+				"id": "1670",
+				"url": "",
+				"img": {
+					"w": 0,
+					"h": 0,
+					"url": ""
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "0",
+				"id": 0,
+				"url": "https:\/\/m.bmtrip.com\/cms\/activity\/5daa9476b896310ce154f4a2",
+				"img": {
+					"w": "750",
+					"h": "118",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5daa78525d2d2.jpg"
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "0",
+				"id": 0,
+				"url": "",
+				"img": {
+					"w": "750",
+					"h": "250",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5da95669cc8b1.jpg"
+				}
+			}]
+		}, {
+			"type": 1,
+			"name": "幻灯片组件",
+			"style": "2",
+			"data": [{
+				"type": "1",
+				"id": "1767",
+				"url": "",
+				"img": {
+					"w": 0,
+					"h": 0,
+					"url": ""
+				}
+			}, {
+				"type": "1",
+				"id": "2001",
+				"url": "",
+				"img": {
+					"w": 0,
+					"h": 0,
+					"url": ""
+				}
+			}, {
+				"type": "1",
+				"id": "236",
+				"url": "",
+				"img": {
+					"w": 0,
+					"h": 0,
+					"url": ""
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "0",
+				"id": 0,
+				"url": "https:\/\/m.bmtrip.com\/cms\/activity\/5daa9596b89631605573ac59",
+				"img": {
+					"w": "750",
+					"h": "118",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5daa7859dcfe7.jpg"
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "0",
+				"id": 0,
+				"url": "",
+				"img": {
+					"w": "750",
+					"h": "250",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5da956bf5ebf8.jpg"
+				}
+			}]
+		}, {
+			"type": 1,
+			"name": "幻灯片组件",
+			"style": "2",
+			"data": [{
+				"type": "1",
+				"id": "1521",
+				"url": "",
+				"img": {
+					"w": 0,
+					"h": 0,
+					"url": ""
+				}
+			}, {
+				"type": "1",
+				"id": "2015",
+				"url": "",
+				"img": {
+					"w": 0,
+					"h": 0,
+					"url": ""
+				}
+			}, {
+				"type": "1",
+				"id": "1973",
+				"url": "",
+				"img": {
+					"w": 0,
+					"h": 0,
+					"url": ""
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "0",
+				"id": 0,
+				"url": "https:\/\/m.bmtrip.com\/cms\/activity\/5daa9656b89631605573ac5e",
+				"img": {
+					"w": "750",
+					"h": "118",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5daa786289cc6.jpg"
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "0",
+				"id": 0,
+				"url": "",
+				"img": {
+					"w": "750",
+					"h": "250",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5da95775851d7.jpg"
+				}
+			}]
+		}, {
+			"type": 1,
+			"name": "幻灯片组件",
+			"style": "2",
+			"data": [{
+				"type": "1",
+				"id": "1850",
+				"url": "",
+				"img": {
+					"w": 0,
+					"h": 0,
+					"url": ""
+				}
+			}, {
+				"type": "1",
+				"id": "1802",
+				"url": "",
+				"img": {
+					"w": 0,
+					"h": 0,
+					"url": ""
+				}
+			}, {
+				"type": "1",
+				"id": "1962",
+				"url": "",
+				"img": {
+					"w": 0,
+					"h": 0,
+					"url": ""
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "0",
+				"id": 0,
+				"url": "https:\/\/m.bmtrip.com\/cms\/activity\/5daa95e8b89631107327070f",
+				"img": {
+					"w": "750",
+					"h": "118",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5daa7867bf1fc.jpg"
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "0",
+				"id": 0,
+				"url": "",
+				"img": {
+					"w": "750",
+					"h": "206",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5da957d819fa8.jpg"
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "0",
+				"id": 0,
+				"url": "https:\/\/m.bmtrip.com\/cms\/activity\/5da954b5b896310ce8766cc7",
+				"img": {
+					"w": "750",
+					"h": "871",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5da957e2bf1bd.jpg"
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "1",
+				"id": "1226",
+				"url": "",
+				"img": {
+					"w": 0,
+					"h": 0,
+					"url": ""
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "0",
+				"id": 0,
+				"url": "https:\/\/m.bmtrip.com\/cms\/activity\/5daa9386b89631605c27c619",
+				"img": {
+					"w": "750",
+					"h": "899",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5da957fc6316d.jpg"
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "1",
+				"id": "1793",
+				"url": "",
+				"img": {
+					"w": 0,
+					"h": 0,
+					"url": ""
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "0",
+				"id": 0,
+				"url": "https:\/\/m.bmtrip.com\/cms\/activity\/5dad0c79b896310cee7ad766",
+				"img": {
+					"w": "750",
+					"h": "901",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5da95819bc8c5.jpg"
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "1",
+				"id": "1755",
+				"url": "",
+				"img": {
+					"w": 0,
+					"h": 0,
+					"url": ""
+				}
+			}]
+		}, {
+			"type": 2,
+			"name": "列表组件",
+			"col": "1",
+			"row": 0,
+			"data": [{
+				"type": "2",
+				"id": 0,
+				"url": "",
+				"img": {
+					"w": "750",
+					"h": "133",
+					"url": "https:\/\/product-ssl-qiniu.bmtrip.com\/product_5da958347673d.jpg"
+				}
+			}]
+		}]
+	}
+}
