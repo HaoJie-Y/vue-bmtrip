@@ -230,7 +230,7 @@ export default {
     this.travelTypeIconList = travelTypeIcon.data.list;
 
     console.log(this.bannerList)
-    
+    console.log("aaa");
 
     let centerBar = await homeGroupApi();
     this.centerBarList = centerBar.data.list;
