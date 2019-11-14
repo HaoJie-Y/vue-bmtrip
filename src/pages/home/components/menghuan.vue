@@ -16,35 +16,6 @@
         </div>
       </div>
 
-      <!-- travelType -->
-      <div class="travelType">
-        <ul>
-          <router-link
-            :to="data.url"
-            tag="li"
-            v-for="(data,index) in travelTypeIconList"
-            :key="index"
-          >
-            <span>
-              <img :src="data.img" alt />
-            </span>
-            <i>{{data.label}}</i>
-          </router-link>
-        </ul>
-      </div>
-
-      <!-- center_bar -->
-      <div class="center_bar">
-        <ul>
-          <li v-for="(data,index) in centerBarList" :key="index">
-            <span>
-              <img :src="data.img" alt />
-            </span>
-            <i>{{data.label}}</i>
-          </li>
-        </ul>
-      </div>
-
       <!-- home_items -->
       <div class="products" v-for="(data,index) in topItemList" :key="index + new Date().getTime()">
         <div class="product">
@@ -268,7 +239,7 @@ export default {
     },
     handleHome(){
       this.$emit("handleSend",this.pageId)
-    },
+    }
   }
 };
 </script>
