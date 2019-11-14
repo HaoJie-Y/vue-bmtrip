@@ -89,7 +89,7 @@ export default {
     let data = await detailApi(this.$route.query.id);
     this.detail = data.data;
     this.detailMark = this.detail.mark;
-    console.log(data)
+    // console.log(data)
   }
 };
 </script>

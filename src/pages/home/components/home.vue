@@ -36,16 +36,17 @@
       <!-- center_bar -->
       <div class="center_bar">
         <ul>
-          <li v-for="(data,index) in centerBarList" :key="index">
+          <v-touch tag="li" @tap="handleTheID(data.id,data.label)" v-for="(data,index) in centerBarList" :key="index">
             <span>
               <img :src="data.img" alt />
             </span>
             <i>{{data.label}}</i>
-          </li>
+          </v-touch>
         </ul>
       </div>
 
       <!-- home_items -->
+<!-- topItmeList -->
       <div class="products" v-for="(data,index) in topItemList" :key="index + new Date().getTime()">
         <div class="product">
           <div class="product_title">
@@ -53,7 +54,7 @@
           </div>
           <div class="product_items_container">
             <!-- 每一项产品 -->
-            <div class="product_items" v-for="item in data.content" :key="item.id">
+            <v-touch tag="div" @tap="handleDetailIn(item.id)" class="product_items" v-for="item in data.content" :key="item.id">
               <div class="product_items_img">
                 <img :src="item.img" alt />
               </div>
@@ -73,11 +74,12 @@
                 </div>
                 <div class="product_item_price">￥{{item.price.split('.')[0]}}起</div>
               </div>
-            </div>
+            </v-touch>
           </div>
         </div>
       </div>
 
+<!-- centerItemList -->
       <div class="products" v-for="(data,index) in centerItemList" :key="index">
         <div class="product">
           <div class="product_title">
@@ -86,7 +88,7 @@
           <div class="product_items_container">
             <div class="swiper-container">
               <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="item in data.content" :key="item.id">
+                <v-touch tag="div" @tap="handleDetailIn(item.id)" class="swiper-slide" v-for="item in data.content" :key="item.id">
                   <img style="height:210px" :src="item.img" alt />
                   <div class="trim_wrap_item_info">
                     <div class="trim_wrap_item_info_title">{{item.title}}</div>
@@ -106,13 +108,14 @@
                       <div class="trim_wrap_item_info_price">{{item.price.split('.')[0]}}起</div>
                     </div>
                   </div>
-                </div>
+                </v-touch>
               </div>
             </div>
           </div>
         </div>
       </div>
 
+<!-- bottomItemList -->
       <div
         class="products product_swiper"
         v-for="(data,index) in bottomItemList"
@@ -124,7 +127,7 @@
           </div>
           <div class="product_items_container">
             <!-- 每一项产品 -->
-            <div class="product_items" v-for="item in data.content" :key="item.id">
+            <v-touch tag="div" @tap="handleDetailIn(item.id)" class="product_items" v-for="item in data.content" :key="item.id">
               <div class="product_items_img">
                 <img :src="item.img" alt />
               </div>
@@ -144,7 +147,7 @@
                 </div>
                 <div class="product_item_price">￥{{item.price.split('.')[0]}}起</div>
               </div>
-            </div>
+            </v-touch>
           </div>
         </div>
       </div>
@@ -219,6 +222,8 @@ export default {
 
     let centerBar = await homeGroupApi();
     this.centerBarList = centerBar.data.list;
+// 
+    // console.log(this.centerBarList)
 
     let itemTitles = await homeTitleApi();
     this.itemTitleList = itemTitles.data;
@@ -269,6 +274,25 @@ export default {
     handleHome(){
       this.$emit("handleSend",this.pageId)
     },
+    handleTheID(id,title) {
+      // console.log(id,title)
+      this.$router.push({
+        path:"/proList",
+        query:{
+          theme_id:id,
+          title:title
+        }
+      })
+    },
+    handleDetailIn(id) {
+      // console.log(id)
+      this.$router.push({
+        path:"/detail",
+        query:{
+          id:id
+        }
+      })
+    }
   }
 };
 </script>

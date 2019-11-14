@@ -97,7 +97,7 @@
         async created(){
             let navData = await bmfindNavApi();
             this.navList = navData.data.list;
-            console.log(this.navList);
+            // console.log(this.navList);
         }
     }
 </script>
