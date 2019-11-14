@@ -1,6 +1,6 @@
 <template>
   <div class="pro_list">
-    <div class="header" style="background: rgba(0, 0, 0, 0);">
+    <div class="header" style="background: #fff;">
       <v-touch
         tag="div"
          @tap="handleBack"
@@ -51,101 +51,28 @@
       </div>
     </div>
 
-    <div class="pro_list_wrap">
-      <div class="pro_list_item">
-        <img
-          height="210"
-          src="https://product-ssl-qiniu.bmtrip.com/product_5da19908203c6.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!339x210r/crop/339x210/format/jpg/interlace/1/sharpen/1/quality/100!"
-          alt
-        />
+<!-- 渲染逻辑 -->
+    <div class="pro_list_wrap" v-for="(data,index) in dataList" :key="index">
+      <v-touch tag="div" @tap="handleDetailIn(data.id)" class="pro_list_item">
+        <img :src="data.img"/>
         <div class="pro_list_item_info">
-          <div class="pro_list_item_info_title">马云雷军同款|乌镇梵璞主题文化酒店</div>
+          <div class="pro_list_item_info_title">{{data.title}}</div>
           <div class="pro_list_item_info_subtitle">
-            <span>限时6折</span>
-            <span>8分钟步行至东栅景区</span>
-            <span>含早晚餐下午茶</span>
+            <span v-for="(d,dex) in data.subtitle.split('|')" :key="dex">{{d}}</span>
+            <!-- <span>8分钟步行至东栅景区</span>
+            <span>含早晚餐下午茶</span> -->
           </div>
           <div class="pro_list_item_info_bottom">
             <ul class="pro_list_item_bottom">
-              <li>周边酒店</li>
+              <li v-for="(mark,ind) in data.mark" :key="ind">{{mark.name}}</li>
             </ul>
-            <div class="pro_list_item_price">399起</div>
+            <div class="pro_list_item_price">{{data.price.split(".")[0]}}起</div>
           </div>
         </div>
-      </div>
+      </v-touch>
     </div>
 
-    <div class="pro_list_wrap">
-      <div class="pro_list_item">
-        <img
-          height="210"
-          src="https://product-ssl-qiniu.bmtrip.com/product_5da19908203c6.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!339x210r/crop/339x210/format/jpg/interlace/1/sharpen/1/quality/100!"
-          alt
-        />
-        <div class="pro_list_item_info">
-          <div class="pro_list_item_info_title">马云雷军同款|乌镇梵璞主题文化酒店</div>
-          <div class="pro_list_item_info_subtitle">
-            <span>限时6折</span>
-            <span>8分钟步行至东栅景区</span>
-            <span>含早晚餐下午茶</span>
-          </div>
-          <div class="pro_list_item_info_bottom">
-            <ul class="pro_list_item_bottom">
-              <li>周边酒店</li>
-            </ul>
-            <div class="pro_list_item_price">399起</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="pro_list_wrap">
-      <div class="pro_list_item">
-        <img
-          height="210"
-          src="https://product-ssl-qiniu.bmtrip.com/product_5da19908203c6.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!339x210r/crop/339x210/format/jpg/interlace/1/sharpen/1/quality/100!"
-          alt
-        />
-        <div class="pro_list_item_info">
-          <div class="pro_list_item_info_title">马云雷军同款|乌镇梵璞主题文化酒店</div>
-          <div class="pro_list_item_info_subtitle">
-            <span>限时6折</span>
-            <span>8分钟步行至东栅景区</span>
-            <span>含早晚餐下午茶</span>
-          </div>
-          <div class="pro_list_item_info_bottom">
-            <ul class="pro_list_item_bottom">
-              <li>周边酒店</li>
-            </ul>
-            <div class="pro_list_item_price">399起</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="pro_list_wrap">
-      <div class="pro_list_item">
-        <img
-          height="210"
-          src="https://product-ssl-qiniu.bmtrip.com/product_5da19908203c6.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!339x210r/crop/339x210/format/jpg/interlace/1/sharpen/1/quality/100!"
-          alt
-        />
-        <div class="pro_list_item_info">
-          <div class="pro_list_item_info_title">马云雷军同款|乌镇梵璞主题文化酒店</div>
-          <div class="pro_list_item_info_subtitle">
-            <span>限时6折</span>
-            <span>8分钟步行至东栅景区</span>
-            <span>含早晚餐下午茶</span>
-          </div>
-          <div class="pro_list_item_info_bottom">
-            <ul class="pro_list_item_bottom">
-              <li>周边酒店</li>
-            </ul>
-            <div class="pro_list_item_price">399起</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
   </div>
 </template>
 
@@ -162,9 +89,18 @@ export default {
     }
   },
   methods: {
-     handleBack () {
+    handleBack() {
       this.$router.back(1);
-    }
+    },
+    handleDetailIn(id) {
+      console.log(id)
+      this.$router.push({
+        path:"/detail",
+        query:{
+          id:id
+        }
+      })
+    },
   },
   async created () {
     this.title = this.$route.query.title;
@@ -294,7 +230,13 @@ header {
 }
 .pro_list_item {
   margin: 0 auto 0.2rem;
-}
+  width: 95%;
+}   
+.pro_list_item img {
+  height:2.1rem;
+  width: 100%;
+  object-fit: cover;
+}                                                                     
 
 .pro_list_item_info {
   width: 100%;

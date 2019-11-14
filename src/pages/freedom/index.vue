@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="header" style="border-bottom:0.5px solid #ebedf0;">
-      <div
+      <v-touch tag="div" @tap="handleBack"
         class="iconfont icon-fanhui"
         style="font-size: 0.16rem;font-weight:bold;color: #666464;"
-      ></div>
+      ></v-touch>
       <span>自由行</span>
       <div class="header_right"></div>
     </div>
@@ -50,7 +50,11 @@ export default {
     return {
       list:[]
     }
-  },
+  }, methods: {
+    handleBack () {
+      this.$router.back(1);
+    }
+   },
   async created(){
     let data = await freedomApi();
     this.list = data.data.list;
