@@ -11,14 +11,13 @@
       <div class="mudidi_left">
         <ul>
           <v-touch tag="li" @tap="handleClick(index)" :class="i===index ? 'mudidi_active' : ''" v-for="(item,index) in mudidiList" :key="index">{{item.label}}</v-touch>
-          
         </ul>
       </div>
       <div class="mudidi_right">
         <div class="mudidi_right_top">
-          <div v-for="(data,index) in mudidiChildren" :key="index">
+          <v-touch tag="div" @tap="handleProIn(data.id,data.label)" v-for="(data,index) in mudidiChildren" :key="index">
             <img :src="data.img"/>
-          </div>
+          </v-touch>
          
         </div> 
         <div class="mudidi_more" v-if="mudidiChildren.length>4">
@@ -37,7 +36,7 @@
           <div class="mudidi_hot">
 
 <!-- 热门推荐的每一个项目  -->
-            <div class="mudidi_hot_item" v-for="(item,index) in mudidiProduct" :key="index">
+            <v-touch tag="div" @tap="handleDetailIn(item.id)" class="mudidi_hot_item" v-for="(item,index) in mudidiProduct" :key="index">
               <div class="mudidi_hot_item_img">
                 <img
                   :src="item.img"
@@ -54,7 +53,7 @@
                 <span>温泉酒店</span> -->
               </div>
               <div class="mudidi_hot_item_price">￥{{item.price}}起</div>
-            </div>
+            </v-touch>
 
           </div>
         </div>
@@ -88,6 +87,26 @@ export default {
       this.i = index
       this.mudidiChildren = this.mudidiList[this.i].children;
       this.mudidiProduct = this.mudidiList[this.i].product;
+    },
+    handleDetailIn(id) {
+      console.log(id)
+      this.$router.push({
+        path:"/detail",
+        query:{
+          id:id
+        }
+      })
+    },
+    handleProIn(id,title) {
+      console.log(id,title)
+      
+      this.$router.push({
+        path:"/proList",
+        query:{
+          districtId:id,
+          title:title
+        }
+      })
     }
   }
 };

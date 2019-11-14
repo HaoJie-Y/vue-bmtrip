@@ -1,5 +1,5 @@
 export default {
-    path:"/proList",
+    path:"/proList/districtId",
     component:()=>import("@pages/proList"),
     name:"proList",
 }
