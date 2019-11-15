@@ -19,7 +19,7 @@
         <p class="detail_info_title">{{detail.title}}</p>
         <p class="detail_info_small">{{detail.label}}</p>
         <div class="detail_biaoqian">
-          <div v-for="(marks,ind) in detailMark" :key="ind">{{marks.name}}</div>
+          <div v-for="marks in detailMark" :key="marks.id">{{marks.name}}</div>
           <!-- <div>{{detail.mark[1].name}}</div>
           <div>{{detail.mark[2].name}}</div> -->
         </div>
@@ -28,7 +28,7 @@
           <!-- priceFilter -->
 <!--  -->
           <!--  -->
-          <span class="detail_price_two">￥{{detail.min_price | priceFilter}}</span>
+          <span class="detail_price_two">￥{{detail.min_price}}</span>
           <span class="detail_price_three">起/人</span>
         </div>
       </div>
@@ -71,7 +71,7 @@ export default {
   data () {
 		return {
       detail:"",  
-      detailMark:[],
+      detailMark:[]
       // isShow:true
 		}
   },

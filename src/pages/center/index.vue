@@ -1,7 +1,9 @@
 <template>
     <div class="mine">
         <header>
-            <i class="center-set-icon"></i>
+            
+                <router-link tag="i" to="/settings" class="center-set-icon"></router-link>
+            
         </header>
         <div class="section">
             <div class="mine_info">
@@ -22,77 +24,48 @@
                     </div>
                 </div>
             </div>
-            <div class="mine_list">
+
+
+            <div class="mine_list" v-for="(data,index) in dataList" :key="index">
                 <div class="list_item">
-                    <div class="list_item_child">
+                    <div class="list_item_child" v-for="(item,dex) in data" :key="dex">
                         <div class="left">
                             <div class="icon_1"></div>
-                            <span>我的订单</span>
+                            <span>{{item.title}}</span>
                         </div>
                         <div class="right">&gt;</div>
                     </div>
-                    <div class="list_item_child">
-                        <div class="left">
-                            <div class="icon_1"></div>
-                            <span>我的订单</span>
-                        </div>
-                        <div class="right">&gt;</div>
-                    </div>
-                    <div class="list_item_child">
-                        <div class="left">
-                            <div class="icon_1"></div>
-                            <span>我的订单</span>
-                        </div>
-                        <div class="right">&gt;</div>
-                    </div>
-                    <div class="list_item_child">
-                        <div class="left">
-                            <div class="icon_1"></div>
-                            <span>我的订单</span>
-                        </div>
-                        <div class="right">&gt;</div>
-                    </div>
-                    <div class="list_item_child">
-                        <div class="left">
-                            <div class="icon_1"></div>
-                            <span>我的订单</span>
-                        </div>
-                        <div class="right">&gt;</div>
-                    </div>
+                    
                 </div>
 
             </div>
-            <div class="mine_list">
-                <div class="list_item">
-                    <div class="list_item_child">
-                        <div class="left">
-                            <div class="icon_1"></div>
-                            <span>我的订单</span>
-                        </div>
-                        <div class="right">&gt;</div>
-                    </div>
-                    <div class="list_item_child">
-                        <div class="left">
-                            <div class="icon_1"></div>
-                            <span>我的订单</span>
-                        </div>
-                        <div class="right">&gt;</div>
-                    </div>
-                </div>
-            </div>
+
+            
         </div>
     </div>
 </template>
 
 <script>
+import { centerApi } from "@api/center" 
     export default {
-        name: "Center"
+        name: "Center",
+        data() {
+            return {
+                dataList:[]
+            }
+        },
+        async created () {
+            let data = await centerApi()
+            this.dataList = data.data.list
+            console.log(this.dataList)
+        }
     }
 </script>
 
 <style scoped>
     body{
         background:#f4f4f4;
+        
     }
     header{
         width:100%;
@@ -118,7 +91,7 @@
         right:0;
         bottom:0;
         padding-top:0.44rem;
-
+        background:#f4f4f4;
     }
 
     .center-set-icon{

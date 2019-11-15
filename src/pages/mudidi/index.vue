@@ -81,8 +81,6 @@ export default {
     this.mudidiList = data.data.list;
     this.mudidiChildren = this.mudidiList[this.i].children;
     this.mudidiProduct = this.mudidiList[this.i].product;
-    // this.mudidiSubtitle = this.
-    // console.log(data)
   },
   methods: {
     handleClick(index) {
@@ -91,7 +89,6 @@ export default {
       this.mudidiProduct = this.mudidiList[this.i].product;
     },
     handleDetailIn(id) {
-      // console.log(id)
       this.$router.push({
         path:"/detail",
         query:{
@@ -100,8 +97,6 @@ export default {
       })
     },
     handleProIn(id,title) {
-      // console.log(id,title)
-      
       this.$router.push({
         path:"/proList",
         query:{

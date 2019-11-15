@@ -87,7 +87,7 @@ export default {
     handleActive(index, pageId, e) {
       this.activeIndex = index;
       this.nowPageId = pageId;
-      console.log(e.target.innerText);
+      // console.log(e.target.innerText);
       this.$router.push({ path: "/home", query: { pageId: this.nowPageId } });
       switch (e.target.innerText) {
         case "欢淘亲子":
