@@ -4,5 +4,6 @@ export default {
     name:"center",
     meta : {
         flag: true,
+        requiredAuth:true
     }
 }

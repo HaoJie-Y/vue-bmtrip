@@ -1,8 +1,8 @@
 <template>
   <div class="page">
     <Header :title="title" iconLeft iconRight>
-      <div slot="left" class="header_left" :style="left.style"></div>
-      <div slot="right" class="header_right" :style="right.style"></div>
+      <v-touch tag="div" @tap="handleSearch" slot="left" class="header_left" :style="left.style"></v-touch>
+      <v-touch tag="div" @tap="handlePhone" slot="right" class="header_right" :style="right.style"></v-touch>
     </Header>
     <div class="content">
       <div class="top_bar">
@@ -21,7 +21,7 @@
       <keep-alive>
         <Home :pageId="homeId" v-if="nowPageId===homeId"/>
         <Group :pageId="groupId" v-if="nowPageId===groupId" />
-        <Riben :pageId="childrenId" v-if="nowPageId===childrenId" :key="childrenId"/>
+        <Children :pageId="childrenId" v-if="nowPageId===childrenId" :key="childrenId"/>
 
         <Riben :pageId="ribenId" v-if="nowPageId===ribenId" :key="ribenId"/>
         
@@ -34,6 +34,19 @@
 
       <!-- <Group /> -->
     </div>
+
+    
+    <div class="tellphone" v-if="phoneShow">
+      <div class="tellContent">
+          <div class="top">
+            <span>联系客服</span>
+            <v-touch tag="img" @tap="handlePhone" src="/image/guanbi.png" alt="" />
+          </div>
+          <i class="iconfont icon-kefu"></i>
+          <p class="number">400-021-9988</p>
+          <button class="call">立即拨打</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -43,6 +56,7 @@ import Group from "./components/group";
 import Riben from "./components/riben"
 import Menghuan from "./components/menghuan"
 import ProductList from "./components/productList"
+import Children from "./components/children"
 import { homeNavApi, homeDetailApi } from "@api/home";
 export default {
   components: {
@@ -50,7 +64,8 @@ export default {
     Group,
     Riben,
     Menghuan,
-    ProductList
+    ProductList,
+    Children
   },
   data() {
     return {
@@ -67,6 +82,7 @@ export default {
       dongfeiId:"",
       meizhouId:"",
       chinaId:"",
+      phoneShow:false,
       left: {
         style:
           "background:  50% no-repeat url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNLTEgMTloMjBWLTFILTF6Ii8+PHBhdGggZD0iTTE0IDcuMzMzYTYuNjY3IDYuNjY3IDAgMTEtMTMuMzM0IDAgNi42NjcgNi42NjcgMCAwMTEzLjMzNCAweiIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9Ii44MzMiLz48cGF0aCBkPSJNMTcuMzMzIDE3LjMzM2wtNS01IiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iLjgzMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9nPjwvc3ZnPg==')"
@@ -115,6 +131,14 @@ export default {
           this.chinaId = this.$route.query.pageId;
           break;
       }
+    },
+
+    handlePhone(){
+      this.phoneShow = ! this.phoneShow;
+    },
+
+    handleSearch(){
+      this.$router.push({path:"/search"})
     }
   }
 };
@@ -148,5 +172,83 @@ export default {
 }
 .content{
   overflow-x:hidden;
+}
+
+.tellphone{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:10000;
+  background:rgba(0,0,0,0.5)
+}
+.tellContent{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translateX(-50%) translateY(-50%);
+  background:#fff;
+  padding:0.2rem 0.2rem 0.3rem;
+  box-sizing: border-box;
+  width:2.55rem;
+  height:3.66rem;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tellContent .top{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
+}
+
+.tellContent .top span{
+  font-size: 0.16rem;
+  color:#333;
+}
+.tellContent .top img{
+  width:0.12rem;
+  height:0.12rem;
+}
+
+.icon-kefu{
+  display:block;
+  width:0.82rem;
+  height:0.82rem;
+  color:#c04374;
+  font-size:0.82rem;
+  margin:0.43rem 0 0.13rem;
+}
+
+.number{
+    width: 100% !important;
+    margin-bottom: 0.52rem;
+    text-align: center;
+    color: #6F6E6F;
+    font-size: 0.32rem;
+    font-weight: bold;
+    font-family: 'PingFang SC,Helvetica Neue,Arial,sans-serif';
+    line-height: 0.36rem;
+    color: #C04374;
+    -webkit-transform: scaleX(0.8);
+    transform: scaleX(0.8);
+    font-weight: bold;
+    font-family: system-ui;
+    white-space: nowrap;
+}
+
+.call{
+  width:100%;
+  height:0.44rem;
+  background:#c04374;
+  color:#fff;
+  font-size:0.15rem;
+  line-height:0.44rem;
+  text-align:center;
+  border:none;
+  border-radius: 0.02rem;
 }
 </style>

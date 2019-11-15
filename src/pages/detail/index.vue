@@ -12,7 +12,7 @@
     <div class="contentd">
       <div class="detail_banner">
         <img
-          :src="detail.product_img_wx[0].url"
+          :src="url"
         />
       </div>
       <div class="detail_info">
@@ -71,7 +71,8 @@ export default {
   data () {
 		return {
       detail:"",  
-      detailMark:[]
+      detailMark:[],
+      url:"",
       // isShow:true
 		}
   },
@@ -90,6 +91,7 @@ export default {
     this.detail = data.data;
     this.detailMark = this.detail.mark;
     // console.log(data)
+    this.url = this.detail.product_img_wx[0].url
   }
 };
 </script>

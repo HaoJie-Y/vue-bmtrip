@@ -57,7 +57,6 @@ import { centerApi } from "@api/center"
         async created () {
             let data = await centerApi()
             this.dataList = data.data.list
-            console.log(this.dataList)
         }
     }
 </script>

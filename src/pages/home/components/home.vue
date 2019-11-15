@@ -7,9 +7,7 @@
         <div class="banner">
           <div class="swiper-wrapper">
             <div class="swiper-slide" v-for="(item,index) in bannerList" :key="index">
-              <a :href="item.url">
                 <img :src="item.img.url" :height="item.img.h" :width="item.img.w" alt />
-              </a>
             </div>
           </div>
           <div class="swiper-pagination"></div>
@@ -36,7 +34,7 @@
       <!-- center_bar -->
       <div class="center_bar">
         <ul>
-          <v-touch tag="li" @tap="handleTheID(data.id,data.label)" v-for="(data,index) in centerBarList" :key="index">
+          <v-touch tag="li" @tap="handleTheID(data.id,data.label)" v-for="data in centerBarList" :key="data.id">
             <span>
               <img :src="data.img" alt />
             </span>
@@ -47,7 +45,7 @@
 
       <!-- home_items -->
 <!-- topItmeList -->
-      <div class="products" v-for="(data,index) in topItemList" :key="index + new Date().getTime()">
+      <div class="products" v-for="data in topItemList" :key="data.id">
         <div class="product">
           <div class="product_title">
             <img :src="data.title.img.url" alt />
@@ -118,8 +116,8 @@
 <!-- bottomItemList -->
       <div
         class="products product_swiper"
-        v-for="(data,index) in bottomItemList"
-        :key="index + new Date().getTime()"
+        v-for="data in bottomItemList"
+        :key="data.id"
       >
         <div class="product">
           <div class="product_title">
@@ -135,14 +133,14 @@
                 <div class="product_item_title">{{item.title}}</div>
                 <div class="product_item_introduce">
                   <span
-                    v-for="(child,dex) in item.subtitle.split('·')"
-                    :key="dex + new Date().getTime()"
+                    v-for="child in item.subtitle.split('·')"
+                    :key="child.id"
                   >{{child}}</span>
                 </div>
                 <div class="product_item_tags">
                   <span
                     v-for="(tag,num) in item.mark"
-                    :key="num + new Date().getTime()"
+                    :key="num"
                   >{{tag.name}}</span>
                 </div>
                 <div class="product_item_price">￥{{item.price.split('.')[0]}}起</div>

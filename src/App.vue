@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <!-- <keep-alive> -->
+    <keep-alive>
       <router-view></router-view>
-    <!-- </keep-alive> -->
+    </keep-alive>
     <Footer v-if="$route.meta.flag"/>
   </div>
 </template>
