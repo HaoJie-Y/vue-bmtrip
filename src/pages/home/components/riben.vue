@@ -231,7 +231,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data(){
+    return{
+
+    }
+  },
+  props:{
+    pageId:{
+      type:String
+    }
+  },
+};
 </script>
 
 <style scoped>

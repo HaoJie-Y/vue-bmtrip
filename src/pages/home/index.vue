@@ -21,13 +21,15 @@
       <keep-alive>
         <Home :pageId="homeId" v-if="nowPageId===homeId"/>
         <Group :pageId="groupId" v-if="nowPageId===groupId" />
-        <Riben :pageId="childrenId" v-if="nowPageId===childrenId"/>
-        <Riben :pageId="ribenId" v-if="nowPageId===ribenId"/>
+        <Riben :pageId="childrenId" v-if="nowPageId===childrenId" :key="childrenId"/>
+
+        <Riben :pageId="ribenId" v-if="nowPageId===ribenId" :key="ribenId"/>
+        
         <Menghuan :pageId="menghuanId" v-if="nowPageId===menghuanId"/>
-        <ProductList :pageId="ouzhouId" v-if="nowPageId===ouzhouId"/>
-        <ProductList :pageId="dongfeiId" v-if="nowPageId===dongfeiId"/>
-        <ProductList :pageId="meizhouId" v-if="nowPageId===meizhouId"/>
-        <ProductList :pageId="chinaId" v-if="nowPageId===chinaId"/>
+        <ProductList :pageId="ouzhouId" v-if="nowPageId===ouzhouId" :key="ouzhouId"/>
+        <ProductList :pageId="dongfeiId" v-if="nowPageId===dongfeiId" :key="dongfeiId"/>
+        <ProductList :pageId="meizhouId" v-if="nowPageId===meizhouId" :key="meizhouId"/>
+        <ProductList :pageId="chinaId" v-if="nowPageId===chinaId" :key="chinaId"/>
       </keep-alive>
 
       <!-- <Group /> -->
