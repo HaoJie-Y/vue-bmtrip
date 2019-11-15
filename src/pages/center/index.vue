@@ -1,5 +1,6 @@
 <template>
     <div class="mine">
+       
         <header>
             
                 <router-link tag="i" to="/settings" class="center-set-icon"></router-link>
@@ -46,7 +47,9 @@
 </template>
 
 <script>
+// import MessageBox from "../../lib/messageBox/index.js"
 import { centerApi } from "@api/center" 
+
     export default {
         name: "Center",
         data() {
@@ -54,10 +57,17 @@ import { centerApi } from "@api/center"
                 dataList:[]
             }
         },
+       
         async created () {
             let data = await centerApi()
             this.dataList = data.data.list
             console.log(this.dataList)
+            // MessageBox({
+            // //可以传参了
+            // title:"城市定位",
+            // content:"北京"
+            
+            // })
         }
     }
 </script>
