@@ -194,7 +194,6 @@ export default {
     };
   },
   async created() {
-
     let navData = await homeNavApi();
     this.homeNavList = navData.data.nav;
     let detailData = await homeDetailApi();
@@ -215,7 +214,6 @@ export default {
         loop: true
       });
     });
-
     let travelTypeIcon = await homeIconsApi();
     this.travelTypeIconList = travelTypeIcon.data.list;
 
