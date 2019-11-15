@@ -8,13 +8,11 @@ export const bmfindNavApi = (platform=4)=>http({
     }
 })
 
-export const bmfindItemApi = (sort_id=0,page=1,size=6,platform=4)=>http({
+export const bmfindItemApi = (id,size=10)=>http({
     method:"get",
-    url:"api/v3/article/list",
+    url:"/api/v3/article/list",
     data:{
-        sort_id:sort_id,
-        page:page,
-        size:size,
-        platform:platform
+        sort_id:id,
+        size:size
     }
 })

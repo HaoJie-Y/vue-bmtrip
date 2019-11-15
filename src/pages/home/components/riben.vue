@@ -1,249 +1,66 @@
 <template>
   <div>
     <!-- 领取优惠卷 -->
-    <div class="goodOne">
+    <div class="goodOne" v-for="item in ribenDetail" :key="item.id">
       <a href>
-        <img
-          src="https://product-ssl-qiniu.bmtrip.com/product_5daec84e94e04.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!339x390.52799999999996r/crop/339x390.52799999999996/format/jpg/interlace/1/sharpen/1/quality/100!"
-          alt
-        />
-      </a>
-    </div>
-    <div class="goodTwo">
-      <a href>
-        <img
-          src="https://product-ssl-qiniu.bmtrip.com/product_5daecceb544ba.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!339x377.872r/crop/339x377.872/format/jpg/interlace/1/sharpen/1/quality/100!"
-          alt
-        />
-      </a>
-    </div>
-    <div class="goodFamily">
-      <a href>
-        <img
-          src="https://product-ssl-qiniu.bmtrip.com/product_5daec87c2a5b3.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!339x257.64r/crop/339x257.64/format/jpg/interlace/1/sharpen/1/quality/100!"
-          alt
-        />
+        <img :height="item.img.h" :width="item.img.w" :src="item.img.url" alt />
       </a>
     </div>
 
-    <div class="product_items_container" style="margin:0.18rem 0.18rem 0.24rem">
+    <div class="product_items_container productList">
       <!-- 每一项产品 -->
-      <div class="product_items">
+      <v-touch tag="div" class="product_items" @tap="handleDetail(item.id)" v-for="item in ribenList" :key="item.id">
         <div class="product_items_img">
-          <img
-            src="https://product-ssl-qiniu.bmtrip.com/product_5da820342900e.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-            alt
-          />
+          <img :src="item.img" alt />
         </div>
         <div class="product_item_info">
-          <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
+          <div class="product_item_title">{{item.title}}}</div>
           <div class="product_item_introduce">
-            <span>亲自首选</span>
-            <span>羊咩咩牧场</span>
-            <span>萤火虫洞</span>
-            <span>萤火虫洞</span>
+            <span v-for="(data,index) in item.subtitle.split('·')" :key="index">{{data}}</span>
           </div>
           <div class="product_item_tags">
-            <span>欢淘亲子</span>
-            <span>含机票</span>
-            <span>热卖</span>
+            <span v-for="(child,dex) in item.mark" :key="dex">{{child.name}}</span>
           </div>
-          <div class="product_item_price">￥32,800起</div>
+          <div class="product_item_price">￥{{item.price.split('.')[0]}}起</div>
         </div>
-      </div>
-      <div class="product_items">
-        <div class="product_items_img">
-          <img
-            src="https://product-ssl-qiniu.bmtrip.com/product_5da540e300ced.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-            alt
-          />
-        </div>
-        <div class="product_item_info">
-          <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-          <div class="product_item_introduce">
-            <span>亲自首选</span>
-            <span>羊咩咩牧场</span>
-            <span>萤火虫洞</span>
-            <span>萤火虫洞</span>
-          </div>
-          <div class="product_item_tags">
-            <span>欢淘亲子</span>
-            <span>含机票</span>
-            <span>热卖</span>
-          </div>
-          <div class="product_item_price">￥32,800起</div>
-        </div>
-      </div>
-
-      <div class="product_items">
-        <div class="product_items_img">
-          <img
-            src="https://product-ssl-qiniu.bmtrip.com/product_5da540e300ced.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-            alt
-          />
-        </div>
-        <div class="product_item_info">
-          <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-          <div class="product_item_introduce">
-            <span>亲自首选</span>
-            <span>羊咩咩牧场</span>
-            <span>萤火虫洞</span>
-            <span>萤火虫洞</span>
-          </div>
-          <div class="product_item_tags">
-            <span>欢淘亲子</span>
-            <span>含机票</span>
-            <span>热卖</span>
-          </div>
-          <div class="product_item_price">￥32,800起</div>
-        </div>
-      </div>
-
-      <div class="product_items">
-        <div class="product_items_img">
-          <img
-            src="https://product-ssl-qiniu.bmtrip.com/product_5da820342900e.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-            alt
-          />
-        </div>
-        <div class="product_item_info">
-          <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-          <div class="product_item_introduce">
-            <span>亲自首选</span>
-            <span>羊咩咩牧场</span>
-            <span>萤火虫洞</span>
-            <span>萤火虫洞</span>
-          </div>
-          <div class="product_item_tags">
-            <span>欢淘亲子</span>
-            <span>含机票</span>
-            <span>热卖</span>
-          </div>
-          <div class="product_item_price">￥32,800起</div>
-        </div>
-      </div>
-      <!-- 每一项产品 -->
-      <div class="product_items">
-        <div class="product_items_img">
-          <img
-            src="https://product-ssl-qiniu.bmtrip.com/product_5da820342900e.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-            alt
-          />
-        </div>
-        <div class="product_item_info">
-          <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-          <div class="product_item_introduce">
-            <span>亲自首选</span>
-            <span>羊咩咩牧场</span>
-            <span>萤火虫洞</span>
-            <span>萤火虫洞</span>
-          </div>
-          <div class="product_item_tags">
-            <span>欢淘亲子</span>
-            <span>含机票</span>
-            <span>热卖</span>
-          </div>
-          <div class="product_item_price">￥32,800起</div>
-        </div>
-      </div>
-      <div class="product_items">
-        <div class="product_items_img">
-          <img
-            src="https://product-ssl-qiniu.bmtrip.com/product_5da540e300ced.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-            alt
-          />
-        </div>
-        <div class="product_item_info">
-          <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-          <div class="product_item_introduce">
-            <span>亲自首选</span>
-            <span>羊咩咩牧场</span>
-            <span>萤火虫洞</span>
-            <span>萤火虫洞</span>
-          </div>
-          <div class="product_item_tags">
-            <span>欢淘亲子</span>
-            <span>含机票</span>
-            <span>热卖</span>
-          </div>
-          <div class="product_item_price">￥32,800起</div>
-        </div>
-      </div>
-
-      <div class="product_items">
-        <div class="product_items_img">
-          <img
-            src="https://product-ssl-qiniu.bmtrip.com/product_5da540e300ced.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-            alt
-          />
-        </div>
-        <div class="product_item_info">
-          <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-          <div class="product_item_introduce">
-            <span>亲自首选</span>
-            <span>羊咩咩牧场</span>
-            <span>萤火虫洞</span>
-            <span>萤火虫洞</span>
-          </div>
-          <div class="product_item_tags">
-            <span>欢淘亲子</span>
-            <span>含机票</span>
-            <span>热卖</span>
-          </div>
-          <div class="product_item_price">￥32,800起</div>
-        </div>
-      </div>
-
-      <div class="product_items">
-        <div class="product_items_img">
-          <img
-            src="https://product-ssl-qiniu.bmtrip.com/product_5da820342900e.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!165x102r/crop/165x102/format/jpg/interlace/1/sharpen/1/quality/100!"
-            alt
-          />
-        </div>
-        <div class="product_item_info">
-          <div class="product_item_title">神奇动物在这里|新西兰11天9晚</div>
-          <div class="product_item_introduce">
-            <span>亲自首选</span>
-            <span>羊咩咩牧场</span>
-            <span>萤火虫洞</span>
-            <span>萤火虫洞</span>
-          </div>
-          <div class="product_item_tags">
-            <span>欢淘亲子</span>
-            <span>含机票</span>
-            <span>热卖</span>
-          </div>
-          <div class="product_item_price">￥32,800起</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="activeRule">
-      <a href>
-        <img
-          src="https://product-ssl-qiniu.bmtrip.com/product_5daeccf351178.jpg?imageMogr2/auto-orient/strip/gravity/Center/thumbnail/!339x351.65600000000006r/crop/339x351.65600000000006/format/jpg/interlace/1/sharpen/1/quality/100!"
-          alt
-        />
-      </a>
+      </v-touch>
     </div>
   </div>
 </template>
 
 <script>
+import { ribenDetailApi, ribenListApi } from "@api/riben";
 export default {
-  data(){
-    return{
+  data() {
+    return {
+      ribenDetail: "",
+      ribenList: []
+    };
+  },
+  props: {
+    pageId: {
+      type: String
+    }
+  },
+  async created() {
+    let detail = await ribenDetailApi(this.pageId);
+    this.ribenDetail = detail.data.data[0].data;
 
-    }
+    let dataList = await ribenListApi(detail.data.data[1].data);
+    this.ribenList = dataList.data.list;
+    console.log(this.ribenList);
   },
-  props:{
-    pageId:{
-      type:String
+   methods:{
+    handleDetail(myId){
+      this.$router.push({path:"/detail",query:{id:myId}})
     }
-  },
+  }
 };
 </script>
 
 <style scoped>
+.goodOne {
+  width: auto;
+  height: auto;
+}
 </style>

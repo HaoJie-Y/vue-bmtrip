@@ -41,4 +41,18 @@ const router = new VueRouter({
     ]
 })
 
+router.beforeEach((to,from,next)=>{
+    if((to.path !="login") && to.meta.requiredAuth){
+        if(localStorage.getItem("token")){
+            next();
+        }else{
+            // next({name:"login",params:{to:to.path}})
+            next();
+            console.log("还没有登录，请先登录")
+        }
+    }else{
+        next();
+    }
+})
+
 export default router;

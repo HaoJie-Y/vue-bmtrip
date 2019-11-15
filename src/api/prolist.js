@@ -35,3 +35,11 @@ export const proListThemelistApi = (theme_id) => http({
         'theme_id[]':theme_id
     }
 })
+
+export const proListSearchApi = (keywords) => http({
+    method:"get",
+    url:"/api/v3/m1/product/list",
+    data:{
+        keywords:keywords
+    }
+})

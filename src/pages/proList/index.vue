@@ -72,12 +72,14 @@
       </v-touch>
     </div>
 
-    
+    <div class="empty" v-if="searchEmpty">
+      <span>暂无该内容</span> 
+    </div>
   </div>
 </template>
 
 <script>
-import { prolistTitleApi,prolistApi,prolistThemeApi,proListThemelistApi } from "@api/prolist"
+import { prolistTitleApi,prolistApi,prolistThemeApi,proListThemelistApi,proListSearchApi} from "@api/prolist"
 export default {
   name: "ProList",
   data() {
@@ -85,6 +87,7 @@ export default {
       tabList:[],
       dataList:[],
       title:"",
+      searchEmpty:false,
       i:0
     }
   },
@@ -116,6 +119,7 @@ export default {
     let theList = await proListThemelistApi(this.$route.query.theme_id)
     // console.log(theList)
 
+    let searList = await proListSearchApi(this.$route.query.keywords);
 
     if (data) {
       this.tabList = data.data.list;
@@ -128,6 +132,13 @@ export default {
     }
     if (theList) {
       this.dataList = theList.data.list
+    }
+    if(searList){
+      this.dataList = searList.data.list
+      this.title = "Search"
+      if(this.dataList.length === 0){
+        this.searchEmpty = true;
+      }
     }
   }
 };
@@ -322,5 +333,20 @@ header {
 
 .pro_list_item_price::before {
   content: "\A5";
+}
+
+.empty{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:#fff;
+  font-size:0.36rem;
+  white-space: nowrap;
+  color:#000;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
