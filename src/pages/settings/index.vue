@@ -25,10 +25,10 @@
         </div>
       </div>
       <div class="setting_item2">
-        <div class="item">
+        <v-touch tag="div" @tap="handleLogout" class="item">
           <i class="iconfont icon-tuichu"></i>
           <span>退出登录</span>
-        </div>
+        </v-touch>
       </div>
     </div>
   </div>
@@ -40,6 +40,10 @@ export default {
   methods: {
     handleBack() {
       this.$router.back(1);
+    },
+    handleLogout(){
+      localStorage.removeItem("token")
+      console.log("退出成功");
     }
   }
 };

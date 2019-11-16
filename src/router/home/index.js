@@ -3,6 +3,7 @@ export default  {
     component:_=>import("@pages/home"),
     name:"home",
     meta : {
-        flag: true
+        flag: true,
+        keepAlive:false
     }
 }

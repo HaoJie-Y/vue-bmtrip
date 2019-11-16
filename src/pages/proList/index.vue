@@ -1,12 +1,7 @@
 <template>
   <div class="pro_list">
     <div class="header" style="background: #fff;">
-      <v-touch
-        tag="div"
-         @tap="handleBack"
-        class="iconfont icon-fanhui"
-        style="font-size: 0.18rem;"
-      ></v-touch>
+      <v-touch tag="div" @tap="handleBack" class="iconfont icon-fanhui" style="font-size: 0.18rem;"></v-touch>
       <span>{{title}}</span>
       <div
         class="iconfont icon-sousuo"
@@ -16,15 +11,14 @@
 
     <div class="vantab">
       <div class="vantab_wrap">
-
-
-        <div @click="i=index" :class="i===index ? 'line_active' : ''" v-for="(item,index) in tabList" :key="index">{{item.title}}</div>
+        <div
+          @click="i=index"
+          :class="i===index ? 'line_active' : ''"
+          v-for="(item,index) in tabList"
+          :key="index"
+        >{{item.title}}</div>
         <!-- <div class="vantab_all">全部</div>
-        <div class="vantab_free">自由行</div> -->
-
-
-
-
+        <div class="vantab_free">自由行</div>-->
       </div>
       <div class="vantab_line"></div>
     </div>
@@ -51,16 +45,16 @@
       </div>
     </div>
 
-<!-- 渲染逻辑 -->
+    <!-- 渲染逻辑 -->
     <div class="pro_list_wrap" v-for="(data,index) in dataList" :key="index">
       <v-touch tag="div" @tap="handleDetailIn(data.id)" class="pro_list_item">
-        <img :src="data.img"/>
+        <img :src="data.img" />
         <div class="pro_list_item_info">
           <div class="pro_list_item_info_title">{{data.title}}</div>
           <div class="pro_list_item_info_subtitle">
             <span v-for="(d,dex) in data.subtitle.split('|')" :key="dex">{{d}}</span>
             <!-- <span>8分钟步行至东栅景区</span>
-            <span>含早晚餐下午茶</span> -->
+            <span>含早晚餐下午茶</span>-->
           </div>
           <div class="pro_list_item_info_bottom">
             <ul class="pro_list_item_bottom">
@@ -73,23 +67,29 @@
     </div>
 
     <div class="empty" v-if="searchEmpty">
-      <span>暂无该内容</span> 
+      <span>暂无该内容</span>
     </div>
   </div>
 </template>
 
 <script>
-import { prolistTitleApi,prolistApi,prolistThemeApi,proListThemelistApi,proListSearchApi} from "@api/prolist"
+import {
+  prolistTitleApi,
+  prolistApi,
+  prolistThemeApi,
+  proListThemelistApi,
+  proListSearchApi
+} from "@api/prolist";
 export default {
   name: "ProList",
   data() {
     return {
-      tabList:[],
-      dataList:[],
-      title:"",
-      searchEmpty:false,
-      i:0
-    }
+      tabList: [],
+      dataList: [],
+      title: "",
+      searchEmpty: false,
+      i: 0
+    };
   },
   methods: {
     handleBack() {
@@ -98,54 +98,59 @@ export default {
     handleDetailIn(id) {
       // console.log(id)
       this.$router.push({
-        path:"/detail",
-        query:{
-          id:id
+        path: "/detail",
+        query: {
+          id: id
         }
-      })
-    },
+      });
+    }
   },
-  async created () {
-    this.title = this.$route.query.title;
-    let data = await prolistTitleApi(this.$route.query.districtId)
-    
+  async created() {
+    if (!this.$route.query.keywords) {
+      this.title = this.$route.query.title;
 
-    let dataList = await prolistApi(this.$route.query.districtId)
-    
+      let data = await prolistTitleApi(this.$route.query.districtId);
 
-    let theTitle = await prolistThemeApi(this.$route.query.theme_id)
-    // console.log(theTitle)
+      let dataList = await prolistApi(this.$route.query.districtId);
 
-    let theList = await proListThemelistApi(this.$route.query.theme_id)
-    // console.log(theList)
+      let theTitle = await prolistThemeApi(this.$route.query.theme_id);
+      // console.log(theTitle)
 
-    let searList = await proListSearchApi(this.$route.query.keywords);
+      let theList = await proListThemelistApi(this.$route.query.theme_id);
+      // console.log(theList)
 
-    if (data) {
-      this.tabList = data.data.list;
-    } 
-    if (theTitle) {
-      this.tabList = theTitle.data.list;
-    }
-    if (dataList) {
-      this.dataList = dataList.data.list
-    }
-    if (theList) {
-      this.dataList = theList.data.list
-    }
-    if(searList){
-      this.dataList = searList.data.list
-      this.title = "Search"
-      if(this.dataList.length === 0){
-        this.searchEmpty = true;
+      if (data.data.list.length > 0) {
+        this.tabList = data.data.list;
       }
+      if (theTitle.data.list.length > 0) {
+        this.tabList = theTitle.data.list;
+      }
+      if (dataList.data.list.length > 0) {
+        this.dataList = dataList.data.list;
+      }
+      if (theList.data.list.length > 0) {
+        this.dataList = theList.data.list;
+      }
+    }
+  },
+  async beforeRouteEnter(to, from, next) {
+    if (from.name === "search") {
+      let searList = await proListSearchApi(to.query.keywords);
+      next(vm => {
+        vm.dataList = searList.data.list;
+        vm.title = "Search";
+        if (vm.dataList.length === 0) {
+          vm.searchEmpty = true;
+        }
+      });
+    } else {
+      next({ query: to.query });
     }
   }
 };
 </script>
 
 <style scoped>
-
 .pro_list {
   position: absolute;
   top: 0;
@@ -182,7 +187,7 @@ header {
 .vantab_wrap div {
   /* flex: 1; */
   height: 0.44rem;
-  width: 0.36rem ;
+  width: 0.36rem;
   line-height: 0.44rem;
   margin: 0 0.05rem;
   padding: 0 0.05rem;
@@ -261,12 +266,12 @@ header {
 .pro_list_item {
   margin: 0 auto 0.2rem;
   width: 95%;
-}   
+}
 .pro_list_item img {
-  height:2.1rem;
+  height: 2.1rem;
   width: 100%;
   object-fit: cover;
-}                                                                     
+}
 
 .pro_list_item_info {
   width: 100%;
@@ -335,17 +340,17 @@ header {
   content: "\A5";
 }
 
-.empty{
+.empty {
   position: absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  background:#fff;
-  font-size:0.36rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  font-size: 0.36rem;
   white-space: nowrap;
-  color:#000;
-  display:flex;
+  color: #000;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
