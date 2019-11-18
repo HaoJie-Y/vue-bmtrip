@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <keep-alive exclude="ProList,Detail">
+    <keep-alive exclude="ProList,Detail,Mudidi">
       <router-view></router-view>
     </keep-alive>
     <Footer v-if="$route.meta.flag"/>

@@ -17,7 +17,7 @@
       </div>
 
       <!-- home_items -->
-      <div class="products" v-for="(data,index) in topItemList" :key="index + new Date().getTime()">
+      <div class="products" v-for="(data,index) in topItemList" :key="index">
         <div class="product">
           <div class="product_title">
             <img :src="data.title.img.url" alt />
@@ -49,7 +49,7 @@
         </div>
       </div>
 
-      <div class="products" v-for="(data,index) in centerItemList" :key="index">
+      <div class="products" v-for="data in centerItemList" :key="data.id">
         <div class="product">
           <div class="product_title">
             <img :src="data.title.img.url" alt />
@@ -64,7 +64,7 @@
                     <div class="trim_wrap_item_info_subtitle">
                       <span
                         v-for="(child,dex) in item.subtitle.split('·')"
-                        :key="dex + new Date().getTime()"
+                        :key="dex"
                       >{{child}}</span>
                     </div>
                     <div class="trim_wrap_item_info_bottom">
@@ -86,8 +86,8 @@
 
       <div
         class="products product_swiper"
-        v-for="(data,index) in bottomItemList"
-        :key="index + new Date().getTime()"
+        v-for="data in bottomItemList"
+        :key="data.id"
       >
         <div class="product">
           <div class="product_title">
@@ -110,7 +110,7 @@
                 <div class="product_item_tags">
                   <span
                     v-for="(tag,num) in item.mark"
-                    :key="num + new Date().getTime()"
+                    :key="num"
                   >{{tag.name}}</span>
                 </div>
                 <div class="product_item_price">￥{{item.price.split('.')[0]}}起</div>

@@ -51,7 +51,7 @@ export default {
     this.$nextTick(async ()=>{
       let productList = await productListApi(this.productIds);
       this.productList = productList.data.list;
-      console.log(this.productList)
+      // console.log(this.productList)
     })
   },
   methods:{

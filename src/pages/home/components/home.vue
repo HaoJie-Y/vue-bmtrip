@@ -303,6 +303,13 @@ export default {
           this.$store.commit("home/footerChange")
           localStorage.setItem("active",2)
         }
+        if(index===3){
+          let path = url.split("?")[0];
+          let query = url.split("?")[1];
+          let themeId = query.split("&")[0].split("=")[1];
+          let title = "周边酒店";
+          this.$router.push({path:path,query:{theme_id:themeId,title:title}})
+        }
     },
     // ...mapMutations([
     //   'footerChange'
