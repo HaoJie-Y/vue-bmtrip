@@ -1,7 +1,7 @@
 <template>
     <div>
       <div class="header">
-        <div class="iconfont icon-fanhui" style="font-size: 0.24rem;font-weight: 800;"></div>
+        <v-touch tag="div" @tap="handleBack" class="iconfont icon-fanhui" style="font-size: 0.24rem;font-weight: 800;"></v-touch>
         <span style="font-weight: 800;font-size: 0.17rem;letter-spacing: 0;">我的信息</span>
         <div class="header_right"></div>
     </div>
@@ -47,7 +47,12 @@
 </template>
 <script>
 export default {
-    name: "Myinfo"
+    name: "Myinfo",
+    methods:{
+        handleBack(){
+            this.$router.back();
+        }
+    }
 }
 </script>
 <style>

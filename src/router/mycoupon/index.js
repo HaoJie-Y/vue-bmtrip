@@ -1,5 +1,5 @@
 export default  {
-    path: "/mycoupon",
+    path: "/center/mycoupon",
     component:_=>import("@pages/mycoupon"),
     name:"mycoupon",
     meta : {

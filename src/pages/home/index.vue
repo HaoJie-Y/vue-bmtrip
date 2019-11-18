@@ -44,7 +44,7 @@
           </div>
           <i class="iconfont icon-kefu"></i>
           <p class="number">400-021-9988</p>
-          <v-touch @tap="handlePhone" tag="buttom" class="call">立即拨打</v-touch>
+          <v-touch @tap="handlePhone" tag="button" class="call">立即拨打</v-touch>
       </div>
     </div>
   </div>

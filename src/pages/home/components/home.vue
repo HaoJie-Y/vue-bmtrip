@@ -17,17 +17,19 @@
       <!-- travelType -->
       <div class="travelType">
         <ul>
-          <router-link
+          <!-- <router-link
             :to="data.url"
             tag="li"
             v-for="(data,index) in travelTypeIconList"
             :key="index"
-          >
+          > -->
+          <v-touch tag="li" v-for="(data,index) in travelTypeIconList" :key="index" @tap="handleType(data.url,index)">
             <span>
               <img :src="data.img" alt />
             </span>
             <i>{{data.label}}</i>
-          </router-link>
+            </v-touch>
+          <!-- </router-link> -->
         </ul>
       </div>
 
@@ -154,6 +156,7 @@
 </template>
 
 <script>
+import {mapState,mapMutations} from "vuex"
 import {
   homeNavApi,
   homeDetailApi,
@@ -263,6 +266,11 @@ export default {
     }
     
   },
+  computed:{
+    ...mapState({
+      footerActive:state=>state.home.footerActive
+    })
+  },
   methods:{
     handleActive(index){
       this.activeIndex = index;
@@ -288,7 +296,18 @@ export default {
           id:id
         }
       })
-    }
+    },
+    handleType(url,index){
+        this.$router.push({path:url})
+        if(index===1){
+          this.$store.commit("home/footerChange")
+          localStorage.setItem("active",2)
+        }
+    },
+    // ...mapMutations([
+    //   'footerChange'
+    //   ]
+    // )
   }
 };
 </script>
