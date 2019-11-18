@@ -97,7 +97,7 @@ export default {
     })
   },
   created(){
-    this.i = this.footerActive
+    this.i = this.footerActive || 0
     // console.log(this.i)
   },
   watch:{
