@@ -11,13 +11,14 @@
             alt
           />
           <div class="user_info">
-            <div class="phone">132****8322</div>
+            <!-- <div class="phone">132****8322</div>
             <div>
               <span class="user_regist">注册用户</span>
               <span class="user_score">
                 <span>5</span>积分
               </span>
-            </div>
+            </div> -->
+            登录/注册
           </div>
           <div class="icon">
             <span>&gt;</span>
@@ -168,6 +169,7 @@ header > h2 {
 
 .user_info {
   flex: 1;
+  font-size: .2rem;
 }
 .phone {
   font-size: 0.2rem;
