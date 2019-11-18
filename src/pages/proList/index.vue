@@ -108,29 +108,44 @@ export default {
   async created() {
     if (!this.$route.query.keywords) {
       this.title = this.$route.query.title;
+      if (this.$route.query.districtId) {
+        let data = await prolistTitleApi(this.$route.query.districtId);
 
-      let data = await prolistTitleApi(this.$route.query.districtId);
-
-      let dataList = await prolistApi(this.$route.query.districtId);
-
-      let theTitle = await prolistThemeApi(this.$route.query.theme_id);
-      // console.log(theTitle)
-
-      let theList = await proListThemelistApi(this.$route.query.theme_id);
-      // console.log(theList)
-
-      if (data.data.list.length > 0) {
-        this.tabList = data.data.list;
+        let dataList = await prolistApi(this.$route.query.districtId);
+        if (data.data.list.length > 0) {
+          this.tabList = data.data.list;
+        }
+        if (dataList.data.list.length > 0) {
+          this.dataList = dataList.data.list;
+        }
       }
-      if (theTitle.data.list.length > 0) {
-        this.tabList = theTitle.data.list;
+
+      if (this.$route.query.theme_id) {
+        let theTitle = await prolistThemeApi(this.$route.query.theme_id);
+
+        let theList = await proListThemelistApi(this.$route.query.theme_id);
+
+        if (theTitle.data.list.length > 0) {
+          this.tabList = theTitle.data.list;
+        }
+
+        if (theList.data.list.length > 0) {
+          this.dataList = theList.data.list;
+        }
       }
-      if (dataList.data.list.length > 0) {
-        this.dataList = dataList.data.list;
-      }
-      if (theList.data.list.length > 0) {
-        this.dataList = theList.data.list;
-      }
+
+      // if (data.data.list.length > 0) {
+      //   this.tabList = data.data.list;
+      // }
+      // if (theTitle.data.list.length > 0) {
+      //   this.tabList = theTitle.data.list;
+      // }
+      // if (dataList.data.list.length > 0) {
+      //   this.dataList = dataList.data.list;
+      // }
+      // if (theList.data.list.length > 0) {
+      //   this.dataList = theList.data.list;
+      // }
     }
   },
   async beforeRouteEnter(to, from, next) {

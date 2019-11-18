@@ -5,7 +5,7 @@ export const prolistApi = (district_id) =>http({
     method: "get",
     url:"/api/v3/m1/product/list",
     data: {
-        'district？_id[]':district_id
+        'district_id[]':district_id
     }
 })
 
