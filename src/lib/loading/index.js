@@ -1,5 +1,4 @@
 import LoadingView from "./index.vue"
-// console.log(LoadingView)
 import Vue from "vue"
 class JSLoading {
     constructor() {
