@@ -1,5 +1,5 @@
 let state = {
-    footerActive:localStorage.getItem("active")
+    footerActive:JSON.parse(localStorage.getItem("active"))
 }
 
 let actions = {

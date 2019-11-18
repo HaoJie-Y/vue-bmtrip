@@ -88,7 +88,7 @@ export default {
   name: "Footer",
   data() {
     return {
-      i: 0
+      i: ""
     };
   },
   computed:{

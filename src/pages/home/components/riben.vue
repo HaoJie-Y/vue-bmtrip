@@ -48,7 +48,7 @@ export default {
 
     let dataList = await ribenListApi(detail.data.data[1].data);
     this.ribenList = dataList.data.list;
-    console.log(this.ribenList);
+    // console.log(this.ribenList);
   },
    methods:{
     handleDetail(myId){
